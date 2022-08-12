@@ -2,14 +2,16 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUp';
 import SignInPage from './pages/SignIn';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <>
+      <Sidebar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/" element={(<HomePage />)} />
+        <Route path="/signin" element={(<SignInPage />)} />
+        <Route path="/signup" element={(<SignUpPage />)} />
       </Routes>
     </>
   );
