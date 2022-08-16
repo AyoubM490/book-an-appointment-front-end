@@ -4,7 +4,7 @@ const SignInPage = () => (
   <>
     <div className="container d-flex justify-content-center align-items-center m-5">
       <form className="form">
-        <h3>
+        <h3 className="text-center">
           LogIn
         </h3>
         <div className="mb-3">
