@@ -17,6 +17,7 @@ import {
   getCurrentUser,
 } from '../../../helpers/api/sessionAPI';
 
+// eslint-disable-next-line consistent-return
 export const signUpUser = (payload) => async (dispatch) => {
   try {
     const response = await registerAction(payload);
@@ -29,6 +30,7 @@ export const signUpUser = (payload) => async (dispatch) => {
   }
 };
 
+// eslint-disable-next-line consistent-return
 export const loginUser = (payload) => async (dispatch) => {
   try {
     const loginResponse = await loginAction(payload);
@@ -50,6 +52,7 @@ export const loginUser = (payload) => async (dispatch) => {
   }
 };
 
+// eslint-disable-next-line consistent-return
 export const refreshAccessToken = (refreshToken) => async (dispatch) => {
   if (!refreshToken) {
     dispatch(refreshTokenFailure('refresh token is required'));
@@ -73,6 +76,7 @@ export const refreshAccessToken = (refreshToken) => async (dispatch) => {
   }
 };
 
+// eslint-disable-next-line consistent-return
 export const logOutUser = (payload) => async (dispatch) => {
   try {
     const logOutResponse = await logOutAction(payload);

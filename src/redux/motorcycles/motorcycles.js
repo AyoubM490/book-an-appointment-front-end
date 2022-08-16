@@ -34,7 +34,7 @@ export const fetchMotorcyclesApi = (accessToken) => async (dispatch) => {
 };
 
 export const createMotorcycleApi = (accessToken, data) => async (dispatch) => {
-  await Axios.post(`${BASE_URL}/motorcycles/${id}`, {
+  await Axios.post(`${BASE_URL}/motorcycles/`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

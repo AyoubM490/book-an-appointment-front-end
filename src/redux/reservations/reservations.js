@@ -16,7 +16,7 @@ const createReservation = (payload) => ({
   payload,
 });
 
-const cancelReservation = (payload) => ({
+const cancelReservation = () => ({
   type: CANCEL_RESERVATION,
 });
 
