@@ -1,4 +1,4 @@
-import * as api from '../../api/api';
+import API from '../api';
 
 export const loadCurrentUser = (state) => state.auth.currentUser;
 
@@ -11,17 +11,17 @@ export const setCurrentUser = (payload) => ({
 });
 
 export const login = (payload) => async (dispatch) => {
-  const response = await api.login(payload);
+  const response = await API.login(payload);
   dispatch(setCurrentUser(response));
 };
 
 export const logout = () => async (dispatch) => {
-  await api.logout();
+  await API.logout();
   dispatch(setCurrentUser(null));
 };
 
 export const signup = (payload) => async (dispatch) => {
-  const response = await api.signup(payload);
+  const response = await API.register(payload);
   dispatch(setCurrentUser(response));
 };
 
