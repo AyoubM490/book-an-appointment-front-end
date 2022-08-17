@@ -30,3 +30,6 @@
     font-family: 'vespa';
   }
     
+  .center-align {
+    margin: 0 auto;
+  }
