@@ -28,10 +28,11 @@ code {
 
 @font-face {
   font-family: 'vespa';
-  src:url('./fonts/webfonts_vespa/vespa.ttf.woff') format('woff'),
-      url('./fonts/webfonts_vespa/vespa.ttf.svg#vespa') format('svg'),
-      url('./fonts/webfonts_vespa/vespa.ttf.eot'),
-      url('./fonts/webfonts_vespa/vespa.ttf.eot?#iefix') format('embedded-opentype'); 
+  src:
+    url('./fonts/webfonts_vespa/vespa.ttf.woff') format('woff'),
+    url('./fonts/webfonts_vespa/vespa.ttf.svg#vespa') format('svg'),
+    url('./fonts/webfonts_vespa/vespa.ttf.eot'),
+    url('./fonts/webfonts_vespa/vespa.ttf.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
 }
