@@ -1,88 +1,51 @@
-import Axios from 'axios';
+export const FETCH_RESERVATIONS = 'BOOK-APPOINTMENT/RESERVATIONS/FETCH_RESERVATIONS';
+export const CREATE_RESERVATION = 'BOOK-APPOINTMENT/RESERVATIONS/CREATE_RESERVATION';
+export const DELETE_RESERVATION = 'BOOK-APPOINTMENT/RESERVATIONS/DELETE_RESERVATION';
+export const FETCH_SINGLE_RESERVATION = 'BOOK-APPOINTMENT/RESERVATIONS/FETCH_SINGLE_RESERVATION';
+export const UPDATE_MOTOR = 'BOOK-APPOINTMENT/RESERVATIONS/UPDATE_MOTOR';
 
-const BASE_URL = '';
-
-const FETCH_RESERVATIONS = 'BOOK-APPOINTMENT/RESERVATIONS/FETCH_RESERVATIONS';
-const CREATE_RESERVATION = 'BOOK-APPOINTMENT/MOTORCYCLES/CREATE_RESERVATION';
-const CANCEL_RESERVATION = 'BOOK-APPOINTMENT/MOTORCYCLES/CANCEL_RESERVATION';
-
-const fetchReservations = (payload) => ({
+export const fetchReservations = (payload) => ({
   type: FETCH_RESERVATIONS,
   payload,
 });
 
-const createReservation = (payload) => ({
+export const createReservation = (payload) => ({
   type: CREATE_RESERVATION,
   payload,
 });
 
-const cancelReservation = () => ({
-  type: CANCEL_RESERVATION,
+export const deleteReservation = (payload) => ({
+  type: DELETE_RESERVATION,
+  payload,
 });
 
-const reservationsState = [];
+export const fetchSingleReservation = (payload) => ({
+  type: FETCH_SINGLE_RESERVATION,
+  payload,
+});
 
-export const fetchReservationsApi = (accessToken) => async (dispatch) => {
-  const returnValue = await Axios.get(`${BASE_URL}/motorcycles`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const { motorcycles } = returnValue.data.data;
+export const updateReservation = (payload) => ({
+  type: UPDATE_MOTOR,
+  payload,
+});
 
-  const returnValue2 = await Axios.get(`${BASE_URL}/reservations`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const appointments = [];
-  const { reservations } = returnValue2.data.data;
-  for (let i = 0; i < reservations.length; i += 1) {
-    const data = {};
-    data.city = reservations[i].city;
-    data.date = reservations[i].date;
-    data.id = reservations[i].id;
-    for (let j = 0; j < motorcycles.length; j += 1) {
-      if (reservations[i].motorcycle_id === motorcycles[j].id) {
-        data.motorcycle = motorcycles[j];
-      }
-    }
-    appointments.push(data);
-  }
-  dispatch(fetchReservations(appointments));
-};
+const initialState = [];
 
-export const createReservationApi = (accessToken, data) => async (dispatch) => {
-  const { city, date, motorcycle } = data;
-  const newReservation = { motorcycle_id: motorcycle.id, city, date };
-  await Axios.post(`${BASE_URL}/reservations`, newReservation, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  dispatch(createReservation(data));
-};
-
-export const cancelReservationApi = (accessToken, id) => async (dispatch) => {
-  await Axios.delete(`${BASE_URL}/reservations/${id}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  dispatch(cancelReservation(id));
-};
-
-const reducer = (state = reservationsState, action) => {
+const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RESERVATIONS:
       return action.payload;
     case CREATE_RESERVATION:
       return [...state, action.payload];
-    case CANCEL_RESERVATION:
+    case DELETE_RESERVATION:
       return state.filter((reservation) => reservation.id !== action.payload);
+    case FETCH_SINGLE_RESERVATION:
+      return action.payload;
+    case UPDATE_MOTOR:
+      return action.payload;
     default:
       return state;
   }
 };
 
-export default reducer;
+export default reservationsReducer;

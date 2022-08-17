@@ -2,6 +2,7 @@ export const FETCH_MOTORCYCLES = 'BOOK-APPOINTMENT/MOTORCYCLES/FETCH_MOTORCYCLES
 export const CREATE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/CREATE_MOTORCYCLE';
 export const DELETE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/DELETE_MOTORCYCLE';
 export const FETCH_SINGLE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/FETCH_SINGLE_MOTORCYCLE';
+export const UPDATE_MOTOR = 'BOOK-APPOINTMENT/MOTORCYCLES/UPDATE_MOTOR';
 
 export const fetchMotorcycles = (payload) => ({
   type: FETCH_MOTORCYCLES,
@@ -23,12 +24,14 @@ export const fetchSingleMotorcycle = (payload) => ({
   payload,
 });
 
-const initialState = {
-  motorcycles: [],
-  motorcycle: {},
-};
+export const updateMotorcycle = (payload) => ({
+  type: UPDATE_MOTOR,
+  payload,
+});
 
-const reducer = (state = initialState, action) => {
+const initialState = [];
+
+const motorcyclesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MOTORCYCLES:
       return action.payload;
@@ -38,9 +41,11 @@ const reducer = (state = initialState, action) => {
       return state.filter((motorcycle) => motorcycle.id !== action.payload);
     case FETCH_SINGLE_MOTORCYCLE:
       return action.payload;
+    case UPDATE_MOTOR:
+      return action.payload;
     default:
       return state;
   }
 };
 
-export default reducer;
+export default motorcyclesReducer;

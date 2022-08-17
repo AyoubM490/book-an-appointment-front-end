@@ -1,10 +1,10 @@
 import {
-  fetchMotorcycles,
-  createMotorcycle,
-  deleteMotorcycle,
-  fetchSingleMotorcycle,
-  updateMotorcycle,
-} from './motorcycles';
+  fetchReservations,
+  createReservation,
+  deleteReservation,
+  fetchSingleReservation,
+  updateReservation,
+} from './reservations';
 
 const baseURL = 'http://localhost:3000/api';
 
@@ -16,7 +16,7 @@ export const fetchMotors = async (dispatch) => {
     },
   });
   const data = await response.json();
-  dispatch(fetchMotorcycles(data));
+  dispatch(fetchReservations(data));
 };
 
 export const fetchSingleMotor = async (id, dispatch) => {
@@ -27,7 +27,7 @@ export const fetchSingleMotor = async (id, dispatch) => {
     },
   });
   const data = await response.json();
-  dispatch(fetchSingleMotorcycle(data));
+  dispatch(fetchSingleReservation(data));
 };
 
 export const addMotor = (motor) => async (dispatch) => {
@@ -41,7 +41,7 @@ export const addMotor = (motor) => async (dispatch) => {
     body: JSON.stringify(motor),
   });
   const data = await response.json();
-  dispatch(createMotorcycle(data));
+  dispatch(createReservation(data));
 };
 
 export const updateMotor = (motor, id) => async (dispatch) => {
@@ -55,7 +55,7 @@ export const updateMotor = (motor, id) => async (dispatch) => {
     body: JSON.stringify(motor),
   });
   const data = await response.json();
-  dispatch(updateMotorcycle(data));
+  dispatch(updateReservation(data));
 };
 
 export const deleteMotor = (id) => async (dispatch) => {
@@ -66,5 +66,5 @@ export const deleteMotor = (id) => async (dispatch) => {
       Authorization: `${token}`,
     },
   });
-  dispatch(deleteMotorcycle(id));
+  dispatch(deleteReservation(id));
 };
