@@ -6,9 +6,9 @@ import signUpReducer from './session/reducer/signUpReducer';
 import reservationsReducer from './reservations/reservations';
 
 const reducer = combineReducers({
-  motorcylesReducer,
+  motorcycle: motorcylesReducer,
   signUpReducer,
-  reservationsReducer,
+  reservations: reservationsReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(logger, thunk));

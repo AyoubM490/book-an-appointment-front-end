@@ -1,57 +1,34 @@
-import Axios from 'axios';
+export const FETCH_MOTORCYCLES = 'BOOK-APPOINTMENT/MOTORCYCLES/FETCH_MOTORCYCLES';
+export const CREATE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/CREATE_MOTORCYCLE';
+export const DELETE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/DELETE_MOTORCYCLE';
+export const FETCH_SINGLE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/FETCH_SINGLE_MOTORCYCLE';
 
-const BASE_URL = '';
-
-const FETCH_MOTORCYCLES = 'BOOK-APPOINTMENT/MOTORCYCLES/FETCH_MOTORCYCLES';
-const CREATE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/CREATE_MOTORCYCLE';
-const DELETE_MOTORCYCLE = 'BOOK-APPOINTMENT/MOTORCYCLES/DELETE_MOTORCYCLE';
-
-const fetchMotorcycles = (payload) => ({
-  type: 'FETCH_MOTORCYCLE',
+export const fetchMotorcycles = (payload) => ({
+  type: FETCH_MOTORCYCLES,
   payload,
 });
 
-const createMotorcycle = (payload) => ({
-  type: 'CREATE_MOTORCYCLE',
+export const createMotorcycle = (payload) => ({
+  type: CREATE_MOTORCYCLE,
   payload,
 });
 
-const deleteMotorcycle = (payload) => ({
-  type: 'DELETE_MOTORCYCLE',
+export const deleteMotorcycle = (payload) => ({
+  type: DELETE_MOTORCYCLE,
   payload,
 });
 
-const motorcyclesState = [];
+export const fetchSingleMotorcycle = (payload) => ({
+  type: FETCH_SINGLE_MOTORCYCLE,
+  payload,
+});
 
-export const fetchMotorcyclesApi = (accessToken) => async (dispatch) => {
-  const returnValue = await Axios.get(`${BASE_URL}/motorcycles`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const { motorcycles } = returnValue.data.data;
-  dispatch(fetchMotorcycles(motorcycles));
+const initialState = {
+  motorcycles: [],
+  motorcycle: {},
 };
 
-export const createMotorcycleApi = (accessToken, data) => async (dispatch) => {
-  await Axios.post(`${BASE_URL}/motorcycles/`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  dispatch(createMotorcycle(data));
-};
-
-export const deleteMotorcycleApi = (accessToken, id) => async (dispatch) => {
-  await Axios.delete(`${BASE_URL}/motorcycles/${id}`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  dispatch(deleteMotorcycle(id));
-};
-
-const reducer = (state = motorcyclesState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MOTORCYCLES:
       return action.payload;
@@ -59,6 +36,8 @@ const reducer = (state = motorcyclesState, action) => {
       return [...state, action.payload];
     case DELETE_MOTORCYCLE:
       return state.filter((motorcycle) => motorcycle.id !== action.payload);
+    case FETCH_SINGLE_MOTORCYCLE:
+      return action.payload;
     default:
       return state;
   }
