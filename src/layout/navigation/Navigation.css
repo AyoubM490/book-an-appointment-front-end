@@ -22,9 +22,11 @@
   a{
     text-decoration: none;
   }
-  .nav-link:hover{
+  .nav-link:hover {
+    text-decoration: none;
     background-color: rgb(158, 206, 63);
-    color: #fff;
+    color: white;
+    border-radius: 5px;
   }
   h1{
     font-family: 'vespa';
