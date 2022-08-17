@@ -28,7 +28,7 @@ const API = {
       });
   },
   fetchMotors: (success) => {
-    axios.get(`${baseURL}/motocycles`)
+    axios.get(`${baseURL}/motorcycles`)
       .then((response) => {
         success(response);
       })
@@ -37,7 +37,7 @@ const API = {
       });
   },
   fetchSingleMotor: (id, success) => {
-    axios.get(`${baseURL}/motocycles/${id}`)
+    axios.get(`${baseURL}/motorcycles/${id}`)
       .then((response) => {
         success(response);
       })
@@ -46,7 +46,7 @@ const API = {
       });
   },
   addMotor: (motor, success) => {
-    axios.post(`${baseURL}/motocycles`, {
+    axios.post(`${baseURL}/motorcycles`, {
       motors: motor,
     })
       .then((response) => {
@@ -57,7 +57,7 @@ const API = {
       });
   },
   updateMotor: (id, motor, success) => {
-    axios.post(`${baseURL}/motocycles/${id}`, {
+    axios.post(`${baseURL}/motorcycles/${id}`, {
       motors: motor,
     })
       .then((response) => {
@@ -68,7 +68,7 @@ const API = {
       });
   },
   deleteMotor: (id, success) => {
-    axios.delete(`${baseURL}/motocycles/${id}`)
+    axios.delete(`${baseURL}/motorcycles/${id}`)
       .then((response) => {
         success(response);
       })
