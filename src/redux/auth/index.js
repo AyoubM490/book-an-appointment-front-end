@@ -11,18 +11,21 @@ export const setCurrentUser = (payload) => ({
 });
 
 export const login = (payload) => async (dispatch) => {
-  const response = await API.login(payload);
-  dispatch(setCurrentUser(response));
+  await API.login(payload, (response) => {
+    dispatch(setCurrentUser(response.data));
+  });
 };
 
 export const logout = () => async (dispatch) => {
-  await API.logout();
-  dispatch(setCurrentUser(null));
+  await dispatch({
+    type: RESET,
+  });
 };
 
 export const signup = (payload) => async (dispatch) => {
-  const response = await API.register(payload);
-  dispatch(setCurrentUser(response));
+  await API.register(payload, (response) => {
+    dispatch(setCurrentUser(response.data));
+  });
 };
 
 const initialState = {
@@ -33,7 +36,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_CURRENT_USER:
-      return action.payload;
+      return {
+        currentUser: action.payload.user,
+        token: action.payload.token,
+      };
     case RESET:
       return initialState;
     default:
