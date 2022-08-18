@@ -34,7 +34,7 @@ a {
 }
 
 h1 {
-  font-family: 'vespa';
+  font-family: 'vespa', sans-serif;
 }
 
 .center-align {
