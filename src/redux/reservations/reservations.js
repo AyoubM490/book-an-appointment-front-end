@@ -25,10 +25,11 @@ export const createReservation = (reservation, userId, motorId) => (dispatch) =>
 };
 
 export const deleteReservation = (id) => (dispatch) => {
-  API.deleteReservation(id, () => {
+  API.deleteReservation(id, (response) => {
     dispatch({
       type: DELETE_RESERVATION,
       payload: id,
+      message: response.data,
     });
   });
 };
@@ -43,11 +44,12 @@ export const fetchSingleReservation = (id) => (dispatch) => {
 };
 
 export const updateReservation = (id, reservation) => (dispatch) => {
-  API.updateReservation(id, reservation, () => {
+  API.updateReservation(id, reservation, (response) => {
     dispatch({
       type: UPDATE_RESERVATION,
       payload: reservation,
       id,
+      message: response.data,
     });
   });
 };
@@ -67,6 +69,7 @@ const reservationsReducer = (state = initialState, action) => {
     case UPDATE_RESERVATION:
       return state.map((reservation) => (reservation.id === action.id
         ? {
+          ...reservation,
           ...action.payload,
         }
         : reservation));
