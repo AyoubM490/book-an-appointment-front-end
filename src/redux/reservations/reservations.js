@@ -6,8 +6,8 @@ export const DELETE_RESERVATION = 'BOOK-APPOINTMENT/RESERVATIONS/DELETE_RESERVAT
 export const FETCH_SINGLE_RESERVATION = 'BOOK-APPOINTMENT/RESERVATIONS/FETCH_SINGLE_RESERVATION';
 export const UPDATE_RESERVATION = 'BOOK-APPOINTMENT/RESERVATIONS/UPDATE_RESERVATION';
 
-export const fetchReservations = () => (dispatch) => {
-  API.fetchReservations((response) => {
+export const fetchReservations = (userId) => (dispatch) => {
+  API.fetchReservations(userId, (response) => {
     dispatch({
       type: FETCH_RESERVATIONS,
       payload: response.data,
@@ -15,8 +15,8 @@ export const fetchReservations = () => (dispatch) => {
   });
 };
 
-export const createReservation = () => (dispatch) => {
-  API.addReservation((response) => {
+export const createReservation = (reservation, userId, motorId) => (dispatch) => {
+  API.addReservation(reservation, userId, motorId, (response) => {
     dispatch({
       type: CREATE_RESERVATION,
       payload: response.data,
@@ -24,17 +24,17 @@ export const createReservation = () => (dispatch) => {
   });
 };
 
-export const deleteReservation = () => (dispatch) => {
-  API.deleteReservation((response) => {
+export const deleteReservation = (id) => (dispatch) => {
+  API.deleteReservation(id, () => {
     dispatch({
       type: DELETE_RESERVATION,
-      payload: response.data,
+      payload: id,
     });
   });
 };
 
-export const fetchSingleReservation = () => (dispatch) => {
-  API.fetchSingleReservation((response) => {
+export const fetchSingleReservation = (id) => (dispatch) => {
+  API.fetchSingleReservation(id, (response) => {
     dispatch({
       type: FETCH_SINGLE_RESERVATION,
       payload: response.data,
@@ -42,11 +42,12 @@ export const fetchSingleReservation = () => (dispatch) => {
   });
 };
 
-export const updateReservation = () => (dispatch) => {
-  API.updateReservation((response) => {
+export const updateReservation = (id, reservation) => (dispatch) => {
+  API.updateReservation(id, reservation, () => {
     dispatch({
       type: UPDATE_RESERVATION,
-      payload: response.data,
+      payload: reservation,
+      id,
     });
   });
 };
@@ -64,7 +65,11 @@ const reservationsReducer = (state = initialState, action) => {
     case FETCH_SINGLE_RESERVATION:
       return action.payload;
     case UPDATE_RESERVATION:
-      return action.payload;
+      return state.map((reservation) => (reservation.id === action.id
+        ? {
+          ...action.payload,
+        }
+        : reservation));
     default:
       return state;
   }
