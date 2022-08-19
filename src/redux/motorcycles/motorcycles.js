@@ -15,8 +15,8 @@ export const fetchMotorcycles = () => (dispatch) => {
   });
 };
 
-export const createMotorcycle = () => (dispatch) => {
-  API.addMotor((response) => {
+export const createMotorcycle = (motorcycle, userId) => (dispatch) => {
+  API.addMotor(motorcycle, userId, (response) => {
     dispatch({
       type: CREATE_MOTORCYCLE,
       payload: response.data,
@@ -24,17 +24,17 @@ export const createMotorcycle = () => (dispatch) => {
   });
 };
 
-export const deleteMotorcycle = () => (dispatch) => {
-  API.deleteMotor((response) => {
+export const deleteMotorcycle = (id) => (dispatch) => {
+  API.deleteMotor(id, () => {
     dispatch({
       type: DELETE_MOTORCYCLE,
-      payload: response.data,
+      payload: id,
     });
   });
 };
 
-export const fetchSingleMotorcycle = () => (dispatch) => {
-  API.fetchSingleMotor((response) => {
+export const fetchSingleMotorcycle = (id) => (dispatch) => {
+  API.fetchSingleMotor(id, (response) => {
     dispatch({
       type: FETCH_SINGLE_MOTORCYCLE,
       payload: response.data,
@@ -42,11 +42,11 @@ export const fetchSingleMotorcycle = () => (dispatch) => {
   });
 };
 
-export const updateMotorcycle = () => (dispatch) => {
-  API.updateMotor((response) => {
+export const updateMotorcycle = (id) => (dispatch) => {
+  API.updateMotor(id, () => {
     dispatch({
       type: UPDATE_MOTOR,
-      payload: response.data,
+      payload: id,
     });
   });
 };
