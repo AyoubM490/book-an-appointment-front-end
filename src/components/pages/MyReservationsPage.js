@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations } from '../redux/reservations/reservations';
-import Reservation from './Reservation';
+import { fetchReservations } from '../../redux/reservations/reservations';
+import Reservation from '../Reservation';
 
-const MyReservationsList = ({ userId }) => {
+const MyReservationsPage = ({ userId }) => {
   const reservations = useSelector((state) => state.reservations);
   const dispatch = useDispatch();
 
@@ -33,8 +33,8 @@ const MyReservationsList = ({ userId }) => {
   );
 };
 
-MyReservationsList.propTypes = {
+MyReservationsPage.propTypes = {
   userId: PropTypes.number.isRequired,
 };
 
-export default MyReservationsList;
+export default MyReservationsPage;
