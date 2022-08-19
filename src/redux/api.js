@@ -45,8 +45,8 @@ const API = {
         success(error.message);
       });
   },
-  addMotor: (motor, success) => {
-    axios.post(`${baseURL}/motorcycles`, {
+  addMotor: (motor, userId, success) => {
+    axios.post(`${baseURL}/motorcycles?user_id=${userId}`, {
       motors: motor,
     })
       .then((response) => {
@@ -57,7 +57,7 @@ const API = {
       });
   },
   updateMotor: (id, motor, success) => {
-    axios.post(`${baseURL}/motorcycles/${id}`, {
+    axios.patch(`${baseURL}/motorcycles/${id}`, {
       motors: motor,
     })
       .then((response) => {

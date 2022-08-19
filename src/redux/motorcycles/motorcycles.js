@@ -25,10 +25,11 @@ export const createMotorcycle = (motorcycle, userId) => (dispatch) => {
 };
 
 export const deleteMotorcycle = (id) => (dispatch) => {
-  API.deleteMotor(id, () => {
+  API.deleteMotor(id, (response) => {
     dispatch({
       type: DELETE_MOTORCYCLE,
       payload: id,
+      message: response,
     });
   });
 };
@@ -42,11 +43,12 @@ export const fetchSingleMotorcycle = (id) => (dispatch) => {
   });
 };
 
-export const updateMotorcycle = (id) => (dispatch) => {
-  API.updateMotor(id, () => {
+export const updateMotorcycle = (id, motorcycle) => (dispatch) => {
+  API.updateMotor(id, motorcycle, () => {
     dispatch({
       type: UPDATE_MOTOR,
-      payload: id,
+      payload: motorcycle,
+      id,
     });
   });
 };
@@ -64,7 +66,11 @@ const motorcyclesReducer = (state = initialState, action) => {
     case FETCH_SINGLE_MOTORCYCLE:
       return action.payload;
     case UPDATE_MOTOR:
-      return action.payload;
+      return state.map((motor) => (motor.id === action.id
+        ? {
+          ...action.payload,
+        }
+        : motor));
     default:
       return state;
   }
