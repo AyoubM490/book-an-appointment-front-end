@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'http://localhost:4001/api';
 
 const API = {
   login: (user, success) => {
@@ -45,8 +45,8 @@ const API = {
         success(error.message);
       });
   },
-  addMotor: (motor, success) => {
-    axios.post(`${baseURL}/motorcycles`, {
+  addMotor: (motor, userId, success) => {
+    axios.post(`${baseURL}/motorcycles?user_id=${userId}`, {
       motors: motor,
     })
       .then((response) => {

@@ -15,8 +15,8 @@ export const fetchMotorcycles = () => (dispatch) => {
   });
 };
 
-export const createMotorcycle = () => (dispatch) => {
-  API.addMotor((response) => {
+export const createMotorcycle = (motorcycle, userId) => (dispatch) => {
+  API.addMotor(motorcycle, userId, (response) => {
     dispatch({
       type: CREATE_MOTORCYCLE,
       payload: response.data,

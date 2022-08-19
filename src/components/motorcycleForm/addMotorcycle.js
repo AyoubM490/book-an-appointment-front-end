@@ -1,0 +1,113 @@
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
+import './form.css';
+
+const AddMotorcycle = () => {
+  const getData = () => ({
+    model: '',
+    deposit: 0,
+    duration: 0,
+    description: '',
+  });
+  const [formData, setFormData] = useState(getData);
+
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    localStorage.setItem('formData', JSON.stringify(formData));
+  }, [formData]);
+
+  const modelHandle = (e) => {
+    setFormData({ ...formData, model: e.target.value });
+  };
+
+  const depositHandle = (e) => {
+    setFormData({ ...formData, deposit: e.target.value });
+  };
+
+  const durationHandle = (e) => {
+    setFormData({ ...formData, duration: e.target.value });
+  };
+
+  const descriptionHandle = (e) => {
+    setFormData({ ...formData, description: e.target.value });
+  };
+
+  const submitHandle = () => {
+    createMotorcycle(formData, currentUser.currentUser.id)(dispatch);
+  };
+
+  return (
+    <div className="form">
+      <h2>Add your Motor</h2>
+
+      <form onSubmit={submitHandle} className="form">
+        <label className="form-label" htmlFor="model">
+          Model
+          <input
+            type="text"
+            name="model"
+            className="form-control"
+            value={formData.model}
+            onChange={modelHandle}
+            placeholder="Your model.."
+            id="model"
+            required
+          />
+        </label>
+        <label className="form-label mt-3" htmlFor="deposit">
+          Deposit
+          <input
+            type="number"
+            name="deposit"
+            className="form-control"
+            value={formData.deposit}
+            onChange={depositHandle}
+            placeholder="Your deposit"
+            id="deposit"
+            required
+          />
+        </label>
+        <label className="form-label mt-3" htmlFor="duration">
+          Duration
+          <input
+            type="number"
+            name="duration"
+            className="form-control"
+            value={formData.duration}
+            onChange={durationHandle}
+            placeholder="Your duration"
+            id="duration"
+            required
+          />
+        </label>
+        <label className="form-label mt-3" htmlFor="description">
+          Description
+          <textarea
+            name="description"
+            value={formData.description}
+            className="form-control"
+            onChange={descriptionHandle}
+            placeholder="Your description.."
+            id="description"
+            required
+          />
+        </label>
+        <label className="form-label" htmlFor="submit">
+          <input
+            type="submit"
+            className="btn btn-primary mt-3"
+            value="Add to the Database"
+            id="submit"
+          />
+        </label>
+      </form>
+
+    </div>
+  );
+};
+
+export default AddMotorcycle;
