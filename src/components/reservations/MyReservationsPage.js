@@ -14,7 +14,7 @@ const MyReservationsPage = ({ userId }) => {
 
   return (
     <div className="p-3 w-100">
-      <h3>My Reservations</h3>
+      <h3 className="text-center">My Reservations</h3>
       <table className="table table-striped">
         <thead>
           <tr>
