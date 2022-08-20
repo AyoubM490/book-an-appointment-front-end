@@ -8,12 +8,18 @@ function App() {
   const currentUser = useSelector((state) => state.auth);
 
   return (
-    <div className="App">
+    <div className="App d-flex">
       <Navigation />
       <Routes>
-        {currentUser.token && currentUser.token !== null
-          ? <Route path="/reservations" element={<MyReservationsPage userId={currentUser.currentUser.id} />} />
-          : 'Redirect to Login Page'}
+        <Route
+          exact="true"
+          path="/reservations"
+          element={
+          currentUser.token && currentUser.token !== null
+            ? <MyReservationsPage userId={currentUser.currentUser.id} />
+            : 'Redirect to Login Page'
+          }
+        />
       </Routes>
     </div>
   );
