@@ -24,7 +24,7 @@ const AddReservation = () => {
         dedication to the rider.</p>
         <div className='d-flex justify-content-center w-50 mx-auto'>
         <input type={'text'} className='form-control w-25' placeholder='City ' />
-        <button className='button' type='button'>Reserve</button>
+        <button className='reserve-btn rounded-pill' type='button'>Reserve</button>
         </div>
         </div>
     </div>

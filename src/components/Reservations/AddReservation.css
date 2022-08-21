@@ -1,3 +1,8 @@
+:root{
+    --green: RGB(150, 191, 1);
+    --white: RGB(255, 255, 255);
+
+}
 .add-reservation-main-wrap{
     position: absolute;
     z-index: 2;
@@ -9,7 +14,7 @@
 
 }
 .add-reservation{
-    background-color: RGB(150, 191, 1);
+    background-color: var(--green);
     opacity: 0.84;
     height: 100vh;
 }
@@ -19,4 +24,14 @@
 }
 .cursor{
     cursor: pointer;
+}
+.reserve-btn{
+    color: var(--green);
+    width: 147px;
+    background-color:var(--white);
+}
+.reserve-btn:hover{
+    color: var(--white);
+    width: 147px;
+    background-color:var(--green);
 }
