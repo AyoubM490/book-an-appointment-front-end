@@ -2,11 +2,18 @@ import React from 'react'
 import './AddReservation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 const AddReservation = () => {
+  const [isOpen, setIsOpen] = useState(true)
+  const close = () => {
+    setIsOpen(false) 
+    console.log(isOpen)
+  }
+  if (isOpen) {
   return (
     <div className="add-reservation-main-wrap w-100 h-100 mh-100">
     <div className='add-reservation h-100'>
-    <FontAwesomeIcon icon={faXmark} className="text-light mx-5 h1 " />
+    <FontAwesomeIcon icon={faXmark} className="text-light mx-5 h1 cursor" onClick={()=> {close()}} />
       <div className='reserve'>
       <h2 className='text-center text-light'>Reserve Motorcycle</h2>
       <p className='w-50 text-center text-light mx-auto pb-4'>Power Motorcycle was founded in 2022 to challenge the perception of what an American motorcycle could be. 
@@ -23,5 +30,8 @@ const AddReservation = () => {
     </div>
     </div>
   )
+  } else {
+    return null
+  }
 }
 export default AddReservation;
