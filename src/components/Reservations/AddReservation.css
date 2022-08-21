@@ -1,38 +1,41 @@
-:root{
-    --green: RGB(150, 191, 1);
-    --white: RGB(255, 255, 255);
-
-}
-.add-reservation-main-wrap{
-    position: absolute;
-    z-index: 2;
-    background-image: url("https://www.pluginbikes.co.uk/media/catalog/product/cache/1/image/1600x1126/9df78eab33525d08d6e5fb8d27136e95/d/s/dsc_4913.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    backdrop-filter: blur(10px);
-
-}
-.add-reservation{
-    background-color: var(--green);
-    opacity: 0.84;
-    height: 100vh;
+:root {
+  --green: rgb(150, 191, 1);
+  --white: rgb(255, 255, 255);
 }
 
-.reserve{
-    margin-top: 180px;
+.add-reservation-main-wrap {
+  position: absolute;
+  z-index: 2;
+  background-image: url("https://www.pluginbikes.co.uk/media/catalog/product/cache/1/image/1600x1126/9df78eab33525d08d6e5fb8d27136e95/d/s/dsc_4913.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(10px);
 }
-.cursor{
-    cursor: pointer;
+
+.add-reservation {
+  background-color: var(--green);
+  opacity: 0.84;
+  height: 100vh;
 }
-.reserve-btn{
-    color: var(--green);
-    width: 147px;
-    background-color:var(--white);
-    border-color: var(--green);
+
+.reserve {
+  margin-top: 180px;
 }
-.reserve-btn:hover{
-    color: var(--white);
-    width: 147px;
-    background-color:var(--green);
+
+.cursor {
+  cursor: pointer;
+}
+
+.reserve-btn {
+  color: var(--green);
+  width: 147px;
+  background-color: var(--white);
+  border-color: var(--green);
+}
+
+.reserve-btn:hover {
+  color: var(--white);
+  width: 147px;
+  background-color: var(--green);
 }
