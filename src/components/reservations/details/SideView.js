@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight, faGear } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const SideView = (props) => {
   const { motorcycle } = props;
 
   return (
     <div>
-      <h2>{motorcycle.model}</h2>
-      <p>
+      <h2 className="d-flex justify-content-end pt-5 mt-5 mb-0">{motorcycle.model}</h2>
+      <p className="d-flex justify-content-end mb-4">
         $
         {motorcycle.deposit}
         {' '}
@@ -17,12 +20,25 @@ const SideView = (props) => {
         <tbody className="table-body">
           <tr>
             <td>Finance fee</td>
+            <td>value</td>
+          </tr>
+          <tr>
             <td>Service fee</td>
+            <td>value</td>
+          </tr>
+          <tr>
             <td>Total amount payable</td>
+            <td>value</td>
           </tr>
         </tbody>
       </table>
-      <button type="button">Reserve</button>
+      <div className="d-flex justify-content-center mt-5 pt-5 ">
+        <Link to="/reserve/add" className="d-flex justify-content-between mt-5 p-2 w-75 text-white reserve-button">
+          <FontAwesomeIcon icon={faGear} fontSize="20px" />
+          Reserve
+          <FontAwesomeIcon icon={faArrowCircleRight} fontSize="20px" />
+        </Link>
+      </div>
     </div>
   );
 };

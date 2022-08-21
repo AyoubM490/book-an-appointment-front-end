@@ -36,3 +36,18 @@ code {
   font-weight: normal;
   font-style: normal;
 }
+
+.reserve-button {
+  margin-top: 50px;
+  background-color: rgb(158, 206, 63);
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.details-image {
+  width: 70%;
+}
+
+.details-sideview {
+  width: 30%;
+}
