@@ -5,7 +5,6 @@ import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 import './Home.css';
 import Motor from './Motor';
 import responsive from '../../config/responsive';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,9 +27,9 @@ const Home = () => {
           responsive={responsive([3, 2, 1])}
         >
           {motors.map((motor) =>( 
-            <Link to={`/motorcycle/${motor.id}`}>
+            
           <Motor key={motor.id} motor={motor} />
-          </Link>
+      
           ))}
         </Carousel>
       </div>
