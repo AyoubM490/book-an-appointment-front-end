@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Navigation from './layout/navigation/Sidebar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyReservationsPage from './components/reservations/MyReservationsPage';
-import DetailsPage from './components/reservations/details/DetailsPage';
+import DetailsPage from './components/details/DetailsPage';
 
 function App() {
   const currentUser = useSelector((state) => state.auth);
