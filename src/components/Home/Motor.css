@@ -1,6 +1,9 @@
 .motor-card{
     margin-left: 300px;
+    border-radius: 20px;
 }
-.motor-image{
+.motor-image-wrap{
     background-color: #ebdcd2;
+   
 }
+

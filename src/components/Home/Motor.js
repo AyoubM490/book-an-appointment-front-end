@@ -1,13 +1,15 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
-import './Motor.css'
+import './Motor.css';
 const Motor = (motor) => {
     console.log("This is details page f each motors: ",motor.motor);
   return (
     <div className='motor-card'>
         <Card style={{ width: '18rem', border: 'none' }}>
+            <div className="motor-image-wrap">
       <Card.Img variant="top" src={motor.motor.image} className="motor-image" />
+      </div>
       <Card.Body>
         <Card.Title>{motor.motor.model}</Card.Title>
         <Card.Text>
