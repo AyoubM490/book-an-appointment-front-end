@@ -1,3 +1,4 @@
+import "react-multi-carousel/lib/styles.css";
 const responsive = ([desktop, tablet, mobile]) => ({
     superLargeDesktop: {
       // the naming can be any, depends on you.

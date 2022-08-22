@@ -17,20 +17,17 @@ const Home = () => {
     <div className=''>
        <h2 className='text-center'> LATEST MODELS</h2>
        <p className='text-center'>Please select power models</p>
-         <div className='d-flex justify-content-center'>
          <Carousel
           autoPlay
-          className="w-100"
+          className="w-75 mx-auto"
           keyBoardControl
           itemClass="mr-10"
           responsive={responsive([3, 2, 1])
-        }
-        >
+        }>
                 {motors.map((motor) => {
                     return <Motor key={motor.id} motor={motor} />
                 } )}
                 </Carousel>
-            </div>
         </div>
   )
 }
