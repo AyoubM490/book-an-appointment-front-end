@@ -14,7 +14,7 @@ const Motor = (motor) => {
     <div className="motor-card">
       <Card style={{ width: '18rem', border: 'none' }}>
         <div className="motor-image-wrap">
-          <Card.Img variant="top" src={motor.motor.image} className="motor-image" />
+          <Card.Img variant="top" style={{ width: '330px'}} src={motor.motor.image} className="motor-image rounded-circle" />
         </div>
         <Card.Body>
           <Card.Title>{motor.motor.model}</Card.Title>
