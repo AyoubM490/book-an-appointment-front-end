@@ -2,7 +2,12 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import './Motor.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebook,
+  faTwitter,
+  faGooglePlus,
+} from '@fortawesome/free-brands-svg-icons';
 const Motor = (motor) => {
   console.log('This is details page f each motors: ', motor.motor);
   return (
@@ -17,14 +22,10 @@ const Motor = (motor) => {
             {motor.motor.description}
           </Card.Text>
         </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>Cras justo odio</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-        </ListGroup>
         <Card.Body>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
+          <Card.Link href="#">  <FontAwesomeIcon icon={faGooglePlus} fontSize="23px" className='social-m' /></Card.Link>
+          <Card.Link href="#">  <FontAwesomeIcon icon={faFacebook} fontSize="23px" className='social-m' /></Card.Link>
+          <Card.Link href="#">  <FontAwesomeIcon icon={faTwitter} fontSize="23px" className='social-m' /></Card.Link>
         </Card.Body>
       </Card>
     </div>
