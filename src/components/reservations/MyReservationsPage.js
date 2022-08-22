@@ -7,7 +7,7 @@ import Reservation from './Reservation';
 const MyReservationsPage = ({ userId }) => {
   const reservations = useSelector((state) => state.reservations);
   const dispatch = useDispatch();
-  console.log(reservations);
+
   useEffect(() => {
     dispatch(fetchReservations(userId));
   }, [userId]);
