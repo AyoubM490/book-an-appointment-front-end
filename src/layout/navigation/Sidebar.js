@@ -23,7 +23,7 @@ const Navigation = () => (
         <NavLink to="#" activeClassName="active" className="nav-link p-2">RESERVE</NavLink>
         <NavLink to="#" activeClassName="active" className="nav-link p-2">MY RESERVATION</NavLink>
         <NavLink to="add-motorcycle" activeClassName="active" className="nav-link p-2">ADD MOTORCYCLE</NavLink>
-        <NavLink to="#" activeClassName="active" className="nav-link p-2">DELETE MOTORCYCLE</NavLink>
+        <NavLink to="delete-motorcycle" activeClassName="active" className="nav-link p-2">DELETE MOTORCYCLE</NavLink>
       </div>
     </div>
     <div className="d-flex flex-column align-items-center justify-content-center ">

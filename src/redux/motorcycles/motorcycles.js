@@ -24,8 +24,8 @@ export const createMotorcycle = (motorcycle, userId) => (dispatch) => {
   });
 };
 
-export const deleteMotorcycle = () => (dispatch) => {
-  API.deleteMotor((response) => {
+export const deleteMotorcycle = (id) => (dispatch) => {
+  API.deleteMotor(id, (response) => {
     dispatch({
       type: DELETE_MOTORCYCLE,
       payload: response.data,
