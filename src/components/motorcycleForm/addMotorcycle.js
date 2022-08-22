@@ -5,7 +5,7 @@ import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
 const AddMotorcycle = () => {
   const getData = () => ({
     model: '',
-    deposit: 0,
+    price: 0,
     duration_months: 0,
     description: '',
     image: '',
@@ -24,8 +24,8 @@ const AddMotorcycle = () => {
     setFormData({ ...formData, model: e.target.value });
   };
 
-  const depositHandle = (e) => {
-    setFormData({ ...formData, deposit: e.target.value });
+  const priceHandle = (e) => {
+    setFormData({ ...formData, price: e.target.value });
   };
 
   const durationHandle = (e) => {
@@ -62,16 +62,16 @@ const AddMotorcycle = () => {
             required
           />
         </label>
-        <label className="form-label mt-3" htmlFor="deposit">
-          Deposit
+        <label className="form-label mt-3" htmlFor="price">
+          Price
           <input
             type="number"
-            name="deposit"
+            name="price"
             className="form-control"
-            value={formData.deposit}
-            onChange={depositHandle}
-            placeholder="Your deposit"
-            id="deposit"
+            value={formData.price}
+            onChange={priceHandle}
+            placeholder="Your price"
+            id="price"
             required
           />
         </label>
