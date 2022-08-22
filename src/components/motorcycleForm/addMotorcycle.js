@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
-import './form.css';
 
 const AddMotorcycle = () => {
   const getData = () => ({
@@ -9,6 +8,7 @@ const AddMotorcycle = () => {
     deposit: 0,
     duration: 0,
     description: '',
+    image: '',
   });
   const [formData, setFormData] = useState(getData);
 
@@ -34,6 +34,10 @@ const AddMotorcycle = () => {
 
   const descriptionHandle = (e) => {
     setFormData({ ...formData, description: e.target.value });
+  };
+
+  const imageHandle = (e) => {
+    setFormData({ ...formData, image: e.target.value });
   };
 
   const submitHandle = () => {
@@ -95,6 +99,10 @@ const AddMotorcycle = () => {
             id="description"
             required
           />
+        </label>
+        <label className="form-label" htmlFor="image">
+          Image
+          <input type="file" id="image" name="image" accept="image/png, image/jpeg" className="form-control" onChange={imageHandle} />
         </label>
         <label className="form-label" htmlFor="submit">
           <input
