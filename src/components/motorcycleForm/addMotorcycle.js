@@ -6,7 +6,7 @@ const AddMotorcycle = () => {
   const getData = () => ({
     model: '',
     deposit: 0,
-    duration: 0,
+    duration_months: 0,
     description: '',
     image: '',
   });
@@ -29,7 +29,7 @@ const AddMotorcycle = () => {
   };
 
   const durationHandle = (e) => {
-    setFormData({ ...formData, duration: e.target.value });
+    setFormData({ ...formData, duration_months: e.target.value });
   };
 
   const descriptionHandle = (e) => {
@@ -41,7 +41,7 @@ const AddMotorcycle = () => {
   };
 
   const submitHandle = () => {
-    createMotorcycle(formData, currentUser.currentUser.id)(dispatch);
+    dispatch(createMotorcycle(formData, currentUser.currentUser.id));
   };
 
   return (
@@ -79,9 +79,9 @@ const AddMotorcycle = () => {
           Duration
           <input
             type="number"
-            name="duration"
+            name="duration_months"
             className="form-control"
-            value={formData.duration}
+            value={formData.duration_months}
             onChange={durationHandle}
             placeholder="Your duration"
             id="duration"
