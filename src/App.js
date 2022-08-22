@@ -8,12 +8,12 @@ import store from './redux/configureStore';
 function App() {
   return (
     <div className="App">
-       <Provider store={store}>
-      <Navigation />
-            <Routes>
-                <Route path="/" element={<Home />} />
+      <Provider store={store}>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
         </Routes>
-        </Provider>
+      </Provider>
     </div>
   );
 }
