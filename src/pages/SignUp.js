@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SignUpPage = () => (
@@ -33,9 +34,9 @@ const SignUpPage = () => (
             placeholder="Confirm password"
           />
         </div>
-        <button className="btn btn-success" type="submit">
+        <Link to="/sidebar" className="btn btn-success">
           Sign up
-        </button>
+        </Link>
       </form>
     </div>
   </>

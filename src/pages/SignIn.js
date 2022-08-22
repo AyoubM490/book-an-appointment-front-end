@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignInPage = () => (
   <>
@@ -23,9 +24,9 @@ const SignInPage = () => (
             placeholder="Password"
           />
         </div>
-        <button className="btn btn-success" type="submit">
+        <Link to="/sidebar" className="btn btn-success">
           LogIn
-        </button>
+        </Link>
       </form>
     </div>
   </>

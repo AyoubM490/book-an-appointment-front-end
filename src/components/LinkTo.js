@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Sidebar = () => (
+const LinkTo = () => (
   <aside>
     <ul>
       <li>
@@ -12,8 +12,11 @@ const Sidebar = () => (
       <li>
         <Link to="/signup">SignUp</Link>
       </li>
+      <li>
+        <Link to="/sidebar">Navigation</Link>
+      </li>
     </ul>
   </aside>
 );
 
-export default Sidebar;
+export default LinkTo;
