@@ -108,14 +108,9 @@ const AddMotorcycle = () => {
             onChange={imageHandle}
           />
         </label>
-        <label className="form-label" htmlFor="submit">
-          <input
-            type="submit"
-            className="btn btn-primary mt-3"
-            value="Add to the Database"
-            id="submit"
-          />
-        </label>
+        <button type="submit" className="btn btn-primary mt-3" id="submit">
+          Add to the Database
+        </button>
       </form>
     </div>
   );
