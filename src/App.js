@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import SignUpPage from './pages/SignUp';
-import SignInPage from './pages/SignIn';
+import HomePage from './pages/home/HomePage';
+import SignUpPage from './pages/signup/SignUp';
+import SignInPage from './pages/signin/SignIn';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
