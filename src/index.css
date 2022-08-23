@@ -44,9 +44,12 @@ code {
 
 a {
   text-decoration: none;
-  color: none;
 }
 
 .social-m {
   color: #d3d1d1;
+}
+
+.header-text2 {
+  color: #c6c6c6;
 }

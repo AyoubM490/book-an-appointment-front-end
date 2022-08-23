@@ -9,31 +9,35 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 const Motor = (motor) => {
-  console.log('This is details page f each motors: ', motor.motor);
+  const {
+    motor: {
+      id, description, model, image,
+    },
+  } = motor;
   return (
     <div className="motor-card">
       <Card style={{ width: '18rem', border: 'none' }}>
-        <Link to={`/motorcycle/${motor.motor.id}`}>
+        <Link to={`/motorcycle/${id}`}>
           <div className="motor-image-wrap">
-            <Card.Img variant="top" style={{ width: '330px', height: '200px' }} src={motor.motor.image} className="motor-image" />
+            <Card.Img variant="top" style={{ width: '330px', height: '200px' }} src={image} className="motor-image" />
           </div>
           <Card.Body>
-            <Card.Title>{motor.motor.model.toUpperCase()}</Card.Title>
+            <Card.Title><p className="text-dark text-center">{model.toUpperCase()}</p></Card.Title>
             <Card.Text>
-              {motor.motor.description}
+              <p className="text-dark text-center">{description}</p>
             </Card.Text>
           </Card.Body>
         </Link>
-        <Card.Body>
-          <Card.Link href="#">
+        <Card.Body className="text-center">
+          <Card.Link href="https://www.facebook.com" target="_blank">
             {' '}
             <FontAwesomeIcon icon={faGooglePlus} fontSize="23px" className="social-m" />
           </Card.Link>
-          <Card.Link href="#">
+          <Card.Link href="https://www.google.com" target="_blank">
             {' '}
             <FontAwesomeIcon icon={faFacebook} fontSize="23px" className="social-m" />
           </Card.Link>
-          <Card.Link href="#">
+          <Card.Link href="https://www.twitter.com" target="_blank">
             {' '}
             <FontAwesomeIcon icon={faTwitter} fontSize="23px" className="social-m" />
           </Card.Link>

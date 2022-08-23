@@ -11,12 +11,10 @@ const Home = () => {
     dispatch(fetchMotorcycles());
   }, []);
   const motors = useSelector((state) => state.motorcycle);
-  console.log('Data from the API: ', motors);
-
   return (
-    <div className="">
-      <h2 className="text-center"> LATEST MODELS</h2>
-      <p className="text-center">Please select power models</p>
+    <div>
+      <h2 className="text-center m-4">POWER MOTORS LATEST MODELS</h2>
+      <p className="text-center header-text2 m-2">Please select a power models</p>
       <div className="show-motor w-100">
         <Carousel
           autoPlay

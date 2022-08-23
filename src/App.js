@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navigation from './layout/navigation/Sidebar';
+import { Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home/Home';
-import { Provider } from 'react-redux';
 import store from './redux/configureStore';
+import Navigation from './layout/navigation/Sidebar';
 
 function App() {
   return (
