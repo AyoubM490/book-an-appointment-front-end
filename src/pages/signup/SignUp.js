@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import './SignUp.css';
 import { useDispatch } from 'react-redux';
 import { signup } from '../../redux/auth/index';
 
@@ -13,6 +13,7 @@ const SignUpPage = () => {
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
@@ -20,6 +21,7 @@ const SignUpPage = () => {
     };
 
     dispatch(signup(user));
+    navigate('/');
   };
 
   const handleOnChange = (e) => {
