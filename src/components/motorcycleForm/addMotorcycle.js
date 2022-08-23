@@ -36,7 +36,8 @@ const AddMotorcycle = () => {
     setFormData({ ...formData, image: e.target.value });
   };
 
-  const submitHandle = () => {
+  const submitHandle = (e) => {
+    e.preventDefault();
     dispatch(createMotorcycle(formData, currentUser.currentUser.id));
   };
 
@@ -44,7 +45,7 @@ const AddMotorcycle = () => {
     <div className="form">
       <h2>Add your Motor</h2>
 
-      <form onSubmit={submitHandle} className="form">
+      <form onSubmit={(e) => submitHandle(e)} className="form">
         <label className="form-label" htmlFor="model">
           Model
           <input
