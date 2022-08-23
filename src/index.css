@@ -38,14 +38,14 @@ code {
 }
 
 .reserve-button {
-  margin-top: 50px;
+  margin-top: 50%;
   background-color: rgb(158, 206, 63);
   border-radius: 30px;
   text-decoration: none;
 }
 
 .details-image {
-  width: 70%;
+  max-width: 70%;
 }
 
 .details-sideview {

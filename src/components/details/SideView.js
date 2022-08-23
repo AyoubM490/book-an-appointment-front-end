@@ -16,7 +16,7 @@ const SideView = (props) => {
   const totalPayable = (financeFee + serviceFee + motorcycle.price) - deposit;
 
   return (
-    <div>
+    <div className="w-100">
       <h2 className="d-flex justify-content-end pt-5 mt-5 mb-0">{motorcycle.model}</h2>
       <p className="d-flex justify-content-end mb-4">
         $
@@ -28,29 +28,36 @@ const SideView = (props) => {
         <tbody className="table-body">
           <tr>
             <td>Finance fee</td>
-            <td className="d-flex justify-content-end">
+            <td>
               $
               {financeFee}
             </td>
           </tr>
           <tr>
             <td>Service fee</td>
-            <td className="d-flex justify-content-end">
+            <td>
               $
               {serviceFee}
             </td>
           </tr>
           <tr>
             <td>Total amount payable</td>
-            <td className="d-flex justify-content-end">
+            <td>
               $
               {totalPayable}
+            </td>
+          </tr>
+          <tr>
+            <td>Duration</td>
+            <td>
+              {motorcycle.duration_months}
+              months
             </td>
           </tr>
         </tbody>
       </table>
       <div className="d-flex justify-content-center mt-5 pt-5 ">
-        <Link to="/reserve/add" className="d-flex justify-content-between mt-5 p-2 w-75 text-white reserve-button">
+        <Link to="/reserve/add" className="d-flex justify-content-between p-2 w-75 text-white reserve-button">
           <FontAwesomeIcon icon={faGear} fontSize="20px" />
           Reserve
           <FontAwesomeIcon icon={faArrowCircleRight} fontSize="20px" />

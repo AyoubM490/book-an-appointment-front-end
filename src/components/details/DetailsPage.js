@@ -14,18 +14,18 @@ const DetailsPage = () => {
 
   return (
     <div className="p-3 w-100 d-flex">
-      { motorcycle
+      {motorcycle && Object.keys(motorcycle).length > 0
         ? (
           <>
-            <section className="details-image p-3">
-              <img src={motorcycle.image} alt="Motorcycle" />
+            <section className=" d-flex align-items-center details-image px-3">
+              <img src={motorcycle.image} alt="Motorcycle" className="w-100" />
             </section>
             <section className="details-sideview d-flex h-100">
               <SideView motorcycle={motorcycle} />
             </section>
           </>
         )
-        : <div>Invalid ID</div>}
+        : <h2>Invalid Motorcycle ID</h2>}
     </div>
 
   );
