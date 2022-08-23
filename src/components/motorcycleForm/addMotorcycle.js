@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
 
 const AddMotorcycle = () => {
-  const getData = () => ({
+  const getData = {
     model: '',
     price: 0,
     duration_months: 0,
     description: '',
     image: '',
-  });
+  };
   const [formData, setFormData] = useState(getData);
 
   const dispatch = useDispatch();
@@ -102,7 +102,14 @@ const AddMotorcycle = () => {
         </label>
         <label className="form-label" htmlFor="image">
           Image
-          <input type="file" id="image" name="image" accept="image/png, image/jpeg" className="form-control" onChange={imageHandle} />
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/png, image/jpeg"
+            className="form-control"
+            onChange={imageHandle}
+          />
         </label>
         <label className="form-label" htmlFor="submit">
           <input
@@ -113,7 +120,6 @@ const AddMotorcycle = () => {
           />
         </label>
       </form>
-
     </div>
   );
 };
