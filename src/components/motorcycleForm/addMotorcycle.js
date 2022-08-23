@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
 
@@ -15,10 +15,6 @@ const AddMotorcycle = () => {
   const dispatch = useDispatch();
 
   const currentUser = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    localStorage.setItem('formData', JSON.stringify(formData));
-  }, [formData]);
 
   const modelHandle = (e) => {
     setFormData({ ...formData, model: e.target.value });
