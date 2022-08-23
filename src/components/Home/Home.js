@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
-import './Home.css';
 import Motor from './Motor';
 import responsive from '../../config/responsive';
 
@@ -26,10 +25,9 @@ const Home = () => {
           itemClass="mr-10"
           responsive={responsive([3, 2, 1])}
         >
-          {motors.map((motor) =>( 
-            
-          <Motor key={motor.id} motor={motor} />
-      
+          {motors.map((motor) => (
+            <Motor key={motor.id} motor={motor} />
+
           ))}
         </Carousel>
       </div>

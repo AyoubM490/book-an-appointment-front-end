@@ -36,3 +36,17 @@ code {
   font-weight: normal;
   font-style: normal;
 }
+
+.show-motor {
+  margin-left: 20%;
+  margin-top: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: none;
+}
+
+.social-m {
+  color: #d3d1d1;
+}
