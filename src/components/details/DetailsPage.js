@@ -8,14 +8,13 @@ const DetailsPage = () => {
   const motorcycle = useSelector((state) => state.motorcycles);
   const { id } = useParams();
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchSingleMotorcycle(id));
   }, [id]);
 
   return (
     <div className="p-3 w-100 d-flex">
-      { motorcycle.length > 0
+      { motorcycle
         ? (
           <>
             <section className="details-image p-3">

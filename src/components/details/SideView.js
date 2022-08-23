@@ -7,12 +7,20 @@ import { Link } from 'react-router-dom';
 const SideView = (props) => {
   const { motorcycle } = props;
 
+  const deposit = motorcycle.price * 0.05;
+
+  const serviceFee = motorcycle.price * 0.01;
+
+  const financeFee = motorcycle.price * 0.03;
+
+  const totalPayable = (financeFee + serviceFee + motorcycle.price) - deposit;
+
   return (
     <div>
       <h2 className="d-flex justify-content-end pt-5 mt-5 mb-0">{motorcycle.model}</h2>
       <p className="d-flex justify-content-end mb-4">
         $
-        {motorcycle.deposit}
+        {deposit}
         {' '}
         deposit to be made
       </p>
@@ -20,15 +28,24 @@ const SideView = (props) => {
         <tbody className="table-body">
           <tr>
             <td>Finance fee</td>
-            <td>value</td>
+            <td className="d-flex justify-content-end">
+              $
+              {financeFee}
+            </td>
           </tr>
           <tr>
             <td>Service fee</td>
-            <td>value</td>
+            <td className="d-flex justify-content-end">
+              $
+              {serviceFee}
+            </td>
           </tr>
           <tr>
             <td>Total amount payable</td>
-            <td>value</td>
+            <td className="d-flex justify-content-end">
+              $
+              {totalPayable}
+            </td>
           </tr>
         </tbody>
       </table>

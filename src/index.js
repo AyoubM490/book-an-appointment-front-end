@@ -11,6 +11,8 @@ const user = {
   name: 'Solomon',
 };
 
+// store.dispatch(signup(user));
+
 store.dispatch(login(user));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
