@@ -1,12 +1,23 @@
 import { React, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { login } from '../../redux/auth/index';
+import store from '../../redux/configureStore';
 
 const SignInPage = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [username, setUsername] = useState('');
   const close = () => {
     setIsOpen(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      name: username,
+    };
+
+    store.dispatch(login(user));
   };
 
   if (isOpen) {
@@ -14,7 +25,7 @@ const SignInPage = () => {
       <>
         <div className="container mt-5 ml-1 col-sm-4">
           <FontAwesomeIcon icon={faXmark} className="text-danger h3 cursor" onClick={() => { close(); }} />
-          <form className="form">
+          <form onSubmit={handleSubmit} className="form">
             <h3 className="text-center">
               LogIn
             </h3>
