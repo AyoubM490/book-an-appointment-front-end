@@ -13,8 +13,6 @@ const Home = () => {
     dispatch(fetchMotorcycles());
   }, []);
   const motors = useSelector((state) => state.motorcycle);
-  
-
   return (
     <div className='text-center'>
       <h2 className="text-center m-4">POWER MOTORS LATEST MODELS</h2>
@@ -22,7 +20,7 @@ const Home = () => {
       <div className="show-motor w-100">
         <Carousel
           autoPlay
-          className="w-75"
+          className="w-75" 
           keyBoardControl
           itemClass="mr-10"
           responsive={responsive([3, 2, 1])}
@@ -31,6 +29,7 @@ const Home = () => {
             motors.map((motor) => (
             <Motor key={motor.id} motor={motor} />
           )) : <div className='dflex flex-column justify-content-center'>
+
             <FontAwesomeIcon icon={faCircleInfo} className="text-info h3" /> 
             <h2 className='w-100'>There is no motorcycle 
             <FontAwesomeIcon icon={faMotorcycle} /> avilable 
