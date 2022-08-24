@@ -1,36 +1,27 @@
-// import { useState, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { deleteMotorcycle, fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteMotorcycle, fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
+import {
+  deleteMotorcycle,
+  fetchMotorcycles,
+} from '../../redux/motorcycles/motorcycles';
+import Motorcycle from './Motorcycle';
 
 const DeleteMotorcycle = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMotorcycles());
   }, []);
-  const motorcycle = useSelector((state) => state.motorcycle);
+  const motorcyclesState = useSelector((state) => state.motorcycles);
   function handleDelete(e, id) {
     e.preventDefault();
     dispatch(deleteMotorcycle(id));
   }
-  const motorcycles = motorcycle.map((motor) => (
-    <div key={motor.id}>
-      <h3>{motor.model}</h3>
-      <img src={motor.image} alt="motor-model" />
-      <p>
-        Duration:
-        {motor.duration_months}
-        {' '}
-        Weeks
-        {' '}
-        - Price: $
-        {motor.price}
-      </p>
-      <button type="submit" className="btn btn-danger" onClick={(e) => handleDelete(e, motor.id)}>Delete</button>
-    </div>
+  const motorcycles = motorcyclesState.map((motor) => (
+    <Motorcycle
+      key={motor.id}
+      motor={motor}
+      handleDelete={() => handleDelete}
+    />
   ));
 
   return (
