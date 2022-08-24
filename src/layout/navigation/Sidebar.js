@@ -21,7 +21,7 @@ const Navigation = () => (
       <div className="d-flex flex-column center-align">
         <NavLink to="#" exact activeClassName="active" className="nav-link p-2">MOTORCYCLES</NavLink>
         <NavLink to="#" activeClassName="active" className="nav-link p-2">RESERVE</NavLink>
-        <NavLink to="/reservations" activeClassName="active" className="nav-link p-2">MY RESERVATION</NavLink>
+        <NavLink to="/reservations" activeClassName="active" className="nav-link p-2">MY RESERVATIONS</NavLink>
         <NavLink to="#" activeClassName="active" className="nav-link p-2">ADD MOTORCYCLE</NavLink>
         <NavLink to="#" activeClassName="active" className="nav-link p-2">DELETE MOTORCYCLE</NavLink>
       </div>
