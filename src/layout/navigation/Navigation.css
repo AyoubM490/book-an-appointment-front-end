@@ -4,17 +4,9 @@
   justify-content: space-between;
   padding: 20px 15px;
   width: 30%;
-
-  /* position: fixed; */
-
-  /* z-index: 1; */
   top: 0;
   left: 0;
   height: 100vh;
-<<<<<<< HEAD
-=======
-  width: 25%;
->>>>>>> dev
   background-color: #fff !important;
   border-right: 0.5px solid #dcd9d9;
   overflow-x: hidden;
