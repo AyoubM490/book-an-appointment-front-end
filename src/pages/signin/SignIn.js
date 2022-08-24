@@ -22,7 +22,7 @@ const SignInPage = () => {
       name: username,
     };
     dispatch(login(user));
-    navigate('/');
+    navigate('/home');
   };
 
   if (isOpen) {

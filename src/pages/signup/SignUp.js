@@ -21,7 +21,7 @@ const SignUpPage = () => {
     };
 
     dispatch(signup(user));
-    navigate('/');
+    navigate('/home');
   };
 
   const handleOnChange = (e) => {
