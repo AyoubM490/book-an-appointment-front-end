@@ -39,6 +39,7 @@ const AddReservation = () => {
             </p>
             <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={handleSubmit}>
               <input type="text" className="form-control w-25" placeholder="City " required />
+              <input type = "date" />   
               <button className="reserve-btn rounded-pill" type="button">Reserve</button>
             </form>
           </div>
