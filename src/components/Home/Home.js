@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Carousel from 'react-multi-carousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMotorcycle, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 import Motor from './Motor';
 import responsive from '../../config/responsive';
@@ -10,9 +12,11 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchMotorcycles());
   }, []);
-  const motors = useSelector((state) => state.motorcycle);
+   const motors = useSelector((state) => state.motorcycle);
+  
+
   return (
-    <div>
+    <div className='text-center'>
       <h2 className="text-center m-4">POWER MOTORS LATEST MODELS</h2>
       <p className="text-center header-text2 m-2">Please select a power models</p>
       <div className="show-motor w-100">
@@ -23,11 +27,17 @@ const Home = () => {
           itemClass="mr-10"
           responsive={responsive([3, 2, 1])}
         >
-          {motors.map((motor) => (
+          { motors.length >0 ? 
+            motors.map((motor) => (
             <Motor key={motor.id} motor={motor} />
-
-          ))}
-        </Carousel>
+          )) : <div className='dflex flex-column justify-content-center border mx-auto info'>
+            <FontAwesomeIcon icon={faCircleInfo} className="text-info h3" /> 
+            <h2 className='w-100 text-center'>There is no motorcycle 
+            <FontAwesomeIcon icon={faMotorcycle} /> avilable 
+            </h2>
+            </div>
+           }
+        </Carousel> 
       </div>
     </div>
   );
