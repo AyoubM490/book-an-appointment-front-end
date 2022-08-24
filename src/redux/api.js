@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:4001/api';
+const baseURL = 'http://localhost:3000/api';
 
 const API = {
   login: (user, success) => {
@@ -46,8 +46,10 @@ const API = {
       });
   },
   addMotor: (motor, userId, success) => {
-    axios.post(`${baseURL}/motorcycles?user_id=${userId}`, {
-      motors: motor,
+    axios({
+      method: 'post',
+      url: `${baseURL}/motorcycles?user_id=${userId}`,
+      data: motor,
     })
       .then((response) => {
         success(response);
@@ -57,8 +59,10 @@ const API = {
       });
   },
   updateMotor: (id, motor, success) => {
-    axios.patch(`${baseURL}/motorcycles/${id}`, {
-      motors: motor,
+    axios({
+      method: 'patch',
+      url: `${baseURL}/motorcycles/${id}`,
+      data: motor,
     })
       .then((response) => {
         success(response);
