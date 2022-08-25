@@ -1,7 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import './sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 import {
   faYoutube,
   faFacebook,
@@ -9,8 +11,18 @@ import {
   faInstagram,
   faGooglePlus,
 } from '@fortawesome/free-brands-svg-icons';
+import { logout } from '../../redux/auth';
 
-const Navigation = () => (
+const Navigation = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleClick = () => {
+    dispatch(logout());
+    navigate('/');
+    
+  }
+  return (
+ 
   <nav className="sidenav">
     <div
       className="d-flex flex-column justify-content-between"
@@ -53,6 +65,7 @@ const Navigation = () => (
         </NavLink>
       </div>
     </div>
+    <button type='button' onClick={handleClick}>Sign out</button>
     <div className="d-flex flex-column align-items-center justify-content-center ">
       <p className="social-wraper">
         <a href="https://www.twitter.com" className="twitter social text-black-50 px-1">
@@ -88,5 +101,6 @@ const Navigation = () => (
     </div>
   </nav>
 );
+  }
 
 export default Navigation;
