@@ -12,23 +12,49 @@ import {
 
 const Navigation = () => (
   <nav className="sidenav">
-    <div className="d-flex flex-column justify-content-between" style={{ height: '50%' }}>
+    <div
+      className="d-flex flex-column justify-content-between"
+      style={{ height: '50%' }}
+    >
       <div>
         <Link to="/">
-          <h1 className="text-center text-dark"><i>Power Motors</i></h1>
+          <h1 className="text-center text-dark">
+            <i>Power Motors</i>
+          </h1>
         </Link>
       </div>
       <div className="d-flex flex-column center-align">
-        <NavLink to="#" exact activeClassName="active" className="nav-link p-2">MOTORCYCLES</NavLink>
-        <NavLink to="#" activeClassName="active" className="nav-link p-2">RESERVE</NavLink>
-        <NavLink to="#" activeClassName="active" className="nav-link p-2">MY RESERVATION</NavLink>
-        <NavLink to="add-motorcycle" activeClassName="active" className="nav-link p-2">ADD MOTORCYCLE</NavLink>
-        <NavLink to="#" activeClassName="active" className="nav-link p-2">DELETE MOTORCYCLE</NavLink>
+        <NavLink to="#" exact activeClassName="active" className="nav-link p-2">
+          MOTORCYCLES
+        </NavLink>
+        <NavLink to="#" activeClassName="active" className="nav-link p-2">
+          RESERVE
+        </NavLink>
+        <NavLink
+          to="/reservations"
+          activeClassName="active"
+          className="nav-link p-3"
+        >
+          MY RESERVATIONS
+        </NavLink>
+        <NavLink
+          to="add-motorcycle"
+          activeClassName="active"
+          className="nav-link p-2"
+        >
+          ADD MOTORCYCLE
+        </NavLink>
+        <NavLink to="#" activeClassName="active" className="nav-link p-2">
+          DELETE MOTORCYCLE
+        </NavLink>
       </div>
     </div>
     <div className="d-flex flex-column align-items-center justify-content-center ">
       <p className="social-wraper">
-        <a href="https://wwww.twitter.com" className="twitter social text-black-50 px-1">
+        <a
+          href="https://wwww.twitter.com"
+          className="twitter social text-black-50 px-1"
+        >
           <FontAwesomeIcon icon={faTwitter} fontSize="23px" />
         </a>
         <a
