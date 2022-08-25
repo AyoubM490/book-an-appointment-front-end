@@ -36,3 +36,24 @@ code {
   font-weight: normal;
   font-style: normal;
 }
+
+.show-motor {
+  margin-left: 5%;
+  margin-top: 200px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.social-m {
+  color: #d3d1d1;
+}
+
+.header-text2 {
+  color: #c6c6c6;
+}
+
+.info {
+  z-index: 3;
+}
