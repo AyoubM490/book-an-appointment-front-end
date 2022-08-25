@@ -18,7 +18,7 @@
 
 ## Getting Started
 
-*To get a local copy up and running follow these simple example steps.
+* To get a local copy up and running follow these simple example steps.
 
 1. clone the repository to you machine using your terminal:
    ```
@@ -36,10 +36,6 @@
    ```
    npm start
    ```
-   Visit [localhost](http://localhost:3000/api/v1) and pass the desired enpoints to view the content
-
-
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 - React
@@ -77,10 +73,7 @@ To get a local copy up and running follow these simple example steps.
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-
-If you would prefer to ignore this check, add SKIP_PREFLIGHT_CHECK=true to an .env file in your project.
-That will permanently disable this message but you might encounter other issues.
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/AyoubMs/book-an-appointment-front-end/issues).
 
 ## Show your support
 
