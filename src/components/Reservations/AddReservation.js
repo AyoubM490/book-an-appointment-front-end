@@ -36,6 +36,13 @@ const AddReservation = ({ userId }) => {
     );
   };
 
+  useEffect(() => {
+    if (location.state !== null) {
+      const { motorId } = location.state;
+      setMotorId(motorId);
+    }
+  }, [motorId]);
+
   const handleMotor = (e) => {
     setMotorId(e.target.value);
   };
@@ -65,7 +72,7 @@ const AddReservation = ({ userId }) => {
               dedication to the rider.
             </p>
             <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={(e) => handleSubmit(e)}>
-              {location.pathname.indexOf('motor_id') === -1
+              {location.state === null
                 ? (
                   <select onChange={handleMotor}>
                     {motors.length > 0 && motors.map((motor) => (
