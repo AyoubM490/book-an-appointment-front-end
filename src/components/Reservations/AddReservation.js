@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './AddReservation.css';
 import PropTypes from 'prop-types';
@@ -15,6 +16,7 @@ const AddReservation = ({ userId }) => {
   };
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchMotorcycles());
@@ -25,6 +27,7 @@ const AddReservation = ({ userId }) => {
   const [motorId, setMotorId] = useState();
   const close = () => {
     setIsOpen(false);
+    navigate(-1);
   };
 
   const handleChange = (e) => {
@@ -50,6 +53,7 @@ const AddReservation = ({ userId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createReservation(reservation, userId, motorId));
+    navigate('/reservations');
   };
   if (isOpen) {
     return (

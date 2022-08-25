@@ -8,7 +8,7 @@ import SignInPage from './pages/signin/SignIn';
 import Navigation from './layout/navigation/Sidebar';
 import AddReservation from './components/Reservations/AddReservation';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyReservationsPage from './components/reservations/MyReservationsPage';
+import MyReservationsPage from './components/Reservations/MyReservationsPage';
 import DetailsPage from './components/details/DetailsPage';
 import Home from './components/Home/Home';
 import AddMotorcycle from './components/motorcycles/addMotorcycle';
