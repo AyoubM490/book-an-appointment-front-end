@@ -29,7 +29,7 @@ export const signup = (payload) => async (dispatch) => {
 };
 
 const initialState = {
-  currentUser: null,
+  currentUser: {},
   token: null,
 };
 
