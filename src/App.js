@@ -7,6 +7,7 @@ import AddMotorcycle from './components/motorcycles/addMotorcycle';
 import DeleteMotorcycle from './components/motorcycles/deleteMotorcycle';
 import './App.css';
 import MyReservationsPage from './components/pages/MyReservationsPage';
+import Motorsgrid from './components/Motorsgrid/Motorsgrid';
 
 function App() {
   const currentUser = useSelector((state) => state.auth);
@@ -30,6 +31,7 @@ function App() {
         <Route path="/add-motorcycle" element={<AddMotorcycle />} />
         <Route path="/delete-motorcycle" element={<DeleteMotorcycle />} />
         <Route exact path="/add-motorcycle" element={<AddMotorcycle />} />
+        <Route exact path="/motorcycles" element={<Motorsgrid />} />
       </Routes>
     </div>
   );
