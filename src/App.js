@@ -38,11 +38,11 @@ function App() {
             : 'Redirect to Login Page'
           }
         />
-       
+
         <Route path="/delete-motorcycle" element={<DeleteMotorcycle />} />
         <Route exact path="/add-motorcycle" element={<AddMotorcycle />} />
-         <Route path="/add-reservation" element={<AddReservation />} />
-        
+        <Route path="/add-reservation" element={<AddReservation />} />
+
       </Routes>
     </div>
   );
