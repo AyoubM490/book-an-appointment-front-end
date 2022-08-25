@@ -16,29 +16,23 @@ const AddMotorcycle = () => {
 
   const currentUser = useSelector((state) => state.auth);
 
-  const modelHandle = (e) => {
-    setFormData({ ...formData, model: e.target.value });
-  };
-
-  const priceHandle = (e) => {
-    setFormData({ ...formData, price: e.target.value });
-  };
-
-  const durationHandle = (e) => {
-    setFormData({ ...formData, duration_months: e.target.value });
-  };
-
-  const descriptionHandle = (e) => {
-    setFormData({ ...formData, description: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const imageHandle = (e) => {
-    setFormData({ ...formData, image: e.target.value });
+    setFormData({ ...formData, image: e.target.files[0] });
   };
 
   const submitHandle = (e) => {
     e.preventDefault();
-    dispatch(createMotorcycle(formData, currentUser.currentUser.id));
+    const newFormData = new FormData();
+    newFormData.append('motors[model]', formData.model);
+    newFormData.append('motors[price]', formData.price);
+    newFormData.append('motors[duration_months]', formData.duration_months);
+    newFormData.append('motors[description]', formData.description);
+    newFormData.append('motors[image]', formData.image);
+    dispatch(createMotorcycle(newFormData, currentUser.currentUser.id));
   };
 
   return (
@@ -53,7 +47,7 @@ const AddMotorcycle = () => {
             name="model"
             className="form-control"
             value={formData.model}
-            onChange={modelHandle}
+            onChange={handleChange}
             placeholder="Your model.."
             id="model"
             required
@@ -66,7 +60,7 @@ const AddMotorcycle = () => {
             name="price"
             className="form-control"
             value={formData.price}
-            onChange={priceHandle}
+            onChange={handleChange}
             placeholder="Your price"
             id="price"
             required
@@ -79,7 +73,7 @@ const AddMotorcycle = () => {
             name="duration_months"
             className="form-control"
             value={formData.duration_months}
-            onChange={durationHandle}
+            onChange={handleChange}
             placeholder="Your duration"
             id="duration"
             required
@@ -91,7 +85,7 @@ const AddMotorcycle = () => {
             name="description"
             value={formData.description}
             className="form-control"
-            onChange={descriptionHandle}
+            onChange={handleChange}
             placeholder="Your description.."
             id="description"
             required
