@@ -9,7 +9,7 @@ const DeleteMotorcycle = () => {
     dispatch(fetchMotorcycles());
   }, []);
   const motorcyclesState = useSelector((state) => state.motorcycles);
-  const motorcycles = motorcyclesState.map((motor) => (
+  const motorcycles = Array.isArray(motorcyclesState) && motorcyclesState.map((motor) => (
     <Motorcycle key={motor.id} motor={motor} />
   ));
 
