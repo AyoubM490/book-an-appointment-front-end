@@ -2,7 +2,7 @@
 
 # Motorcycle-booking-service: Front-end
 
-> A fron-end motorcycle booking service
+> A front-end motorcycle booking service
 
 ![ScreenShot](/public/Powermotor2.png)
 ![ScreenShot](/public/Powermotors1.png)
@@ -12,7 +12,8 @@
 
 - React
 - bootstrap
-  
+
+ [Back-end link](https://github.com/sentayhu19/Book-an-appointment-back-end)
  ## Live Demo
  - [Motorcycle-booking-service-front-end]()
 
