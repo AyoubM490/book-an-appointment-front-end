@@ -37,6 +37,21 @@ code {
   font-style: normal;
 }
 
+.reserve-button {
+  margin-top: 50%;
+  background-color: rgb(158, 206, 63);
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.details-image {
+  width: 70%;
+}
+
+.details-sideview {
+  width: 30%;
+}
+
 .show-motor {
   margin-left: 5%;
   margin-top: 200px;

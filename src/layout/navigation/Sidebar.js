@@ -33,7 +33,7 @@ const Navigation = () => (
         <NavLink
           to="/reservations"
           activeClassName="active"
-          className="nav-link p-3"
+          className="nav-link p-2"
         >
           MY RESERVATIONS
         </NavLink>
@@ -55,10 +55,7 @@ const Navigation = () => (
     </div>
     <div className="d-flex flex-column align-items-center justify-content-center ">
       <p className="social-wraper">
-        <a
-          href="https://wwww.twitter.com"
-          className="twitter social text-black-50 px-1"
-        >
+        <a href="https://www.twitter.com" className="twitter social text-black-50 px-1">
           <FontAwesomeIcon icon={faTwitter} fontSize="23px" />
         </a>
         <a

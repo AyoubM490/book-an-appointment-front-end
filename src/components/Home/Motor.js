@@ -17,9 +17,9 @@ const Motor = (motor) => {
   return (
     <div className="motor-card">
       <Card style={{ width: '18rem', border: 'none' }}>
-        <Link to={`/motorcycle/${id}`}>
+        <Link to={`/motorcycles/${id}`}>
           <div className="motor-image-wrap">
-            <Card.Img variant="top" style={{ width: '350px', height: '200px' }} src={image} className="motor-image" />
+            <Card.Img variant="top" style={{ width: '350px', height: '200px' }} src={image && image.url} className="motor-image" />
           </div>
           <Card.Body>
             <Card.Title><p className="text-dark text-center">{model.toUpperCase()}</p></Card.Title>
