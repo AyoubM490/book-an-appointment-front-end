@@ -4,8 +4,8 @@ const baseURL = 'http://localhost:3000/api';
 
 const API = {
   login: (user, success) => {
-    axios.post(`${baseURL}/users/sign_in`,
-      {
+    axios
+      .post(`${baseURL}/users/sign_in`, {
         user,
       })
       .then((response) => {
@@ -16,8 +16,8 @@ const API = {
       });
   },
   register: (user, success) => {
-    axios.post(`${baseURL}/users`,
-      {
+    axios
+      .post(`${baseURL}/users`, {
         user,
       })
       .then((response) => {
@@ -28,7 +28,8 @@ const API = {
       });
   },
   fetchMotors: (success) => {
-    axios.get(`${baseURL}/motorcycles`)
+    axios
+      .get(`${baseURL}/motorcycles`)
       .then((response) => {
         success(response);
       })
@@ -37,7 +38,8 @@ const API = {
       });
   },
   fetchSingleMotor: (id, success) => {
-    axios.get(`${baseURL}/motorcycles/${id}`)
+    axios
+      .get(`${baseURL}/motorcycles/${id}`)
       .then((response) => {
         success(response);
       })
@@ -46,8 +48,10 @@ const API = {
       });
   },
   addMotor: (motor, userId, success) => {
-    axios.post(`${baseURL}/motorcycles?user_id=${userId}`, {
-      motors: motor,
+    axios({
+      method: 'post',
+      url: `${baseURL}/motorcycles?user_id=${userId}`,
+      data: motor,
     })
       .then((response) => {
         success(response);
@@ -57,8 +61,10 @@ const API = {
       });
   },
   updateMotor: (id, motor, success) => {
-    axios.patch(`${baseURL}/motorcycles/${id}`, {
-      motors: motor,
+    axios({
+      method: 'patch',
+      url: `${baseURL}/motorcycles/${id}`,
+      data: motor,
     })
       .then((response) => {
         success(response);
@@ -68,7 +74,8 @@ const API = {
       });
   },
   deleteMotor: (id, success) => {
-    axios.delete(`${baseURL}/motorcycles/${id}`)
+    axios
+      .delete(`${baseURL}/motorcycles/${id}`)
       .then((response) => {
         success(response);
       })
@@ -77,7 +84,8 @@ const API = {
       });
   },
   fetchReservations: (userId, success) => {
-    axios.get(`${baseURL}/reservations?user_id=${userId}`)
+    axios
+      .get(`${baseURL}/reservations?user_id=${userId}`)
       .then((response) => {
         success(response);
       })
@@ -86,7 +94,8 @@ const API = {
       });
   },
   fetchSingleReservation: (id, success) => {
-    axios.get(`${baseURL}/reservations/${id}`)
+    axios
+      .get(`${baseURL}/reservations/${id}`)
       .then((response) => {
         success(response);
       })
@@ -95,9 +104,10 @@ const API = {
       });
   },
   addReservation: (reservation, userId, motorId, success) => {
-    axios.post(`${baseURL}/reservations?user_id=${userId}&motor_id=${motorId}`, {
-      reservations: reservation,
-    })
+    axios
+      .post(`${baseURL}/reservations?user_id=${userId}&motor_id=${motorId}`, {
+        reservations: reservation,
+      })
       .then((response) => {
         success(response);
       })
@@ -106,9 +116,10 @@ const API = {
       });
   },
   updateReservation: (id, reservation, success) => {
-    axios.patch(`${baseURL}/reservations/${id}`, {
-      reservations: reservation,
-    })
+    axios
+      .patch(`${baseURL}/reservations/${id}`, {
+        reservations: reservation,
+      })
       .then((response) => {
         success(response);
       })
@@ -117,7 +128,8 @@ const API = {
       });
   },
   deleteReservation: (id, success) => {
-    axios.delete(`${baseURL}/reservations/${id}`)
+    axios
+      .delete(`${baseURL}/reservations/${id}`)
       .then((response) => {
         success(response);
       })
