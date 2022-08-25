@@ -27,7 +27,7 @@ const Navigation = () => (
         <NavLink to="#" exact activeClassName="active" className="nav-link p-2">
           MOTORCYCLES
         </NavLink>
-        <NavLink to="#" activeClassName="active" className="nav-link p-2">
+        <NavLink to="/reserve/add" activeClassName="active" className="nav-link p-2">
           RESERVE
         </NavLink>
         <NavLink

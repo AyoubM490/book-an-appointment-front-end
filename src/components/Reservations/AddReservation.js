@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './AddReservation.css';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from 'react-router-dom';
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 import { createReservation } from '../../redux/reservations/reservations';
 
-const AddReservation = () => {
+const AddReservation = ({ userId }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   useEffect(() => {
@@ -15,12 +16,25 @@ const AddReservation = () => {
   }, []);
   const motors = useSelector((state) => state.motorcycles);
   const [isOpen, setIsOpen] = useState(true);
+  const [reservation, setReservation] = useState({});
+  const [motorId, setMotorId] = useState();
   const close = () => {
     setIsOpen(false);
   };
+
+  const handleChange = (e) => {
+    setReservation({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleMotor = (e) => {
+    setMotorId(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createReservation());
+    dispatch(createReservation(reservation, motorId, userId));
   };
   if (isOpen) {
     return (
@@ -45,8 +59,8 @@ const AddReservation = () => {
             <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={handleSubmit}>
               {location.pathname.indexOf('motor_id') === -1
                 ? (
-                  <select>
-                    {motors.map((motor) => (
+                  <select onChange={handleMotor}>
+                    {motors && motors.map((motor) => (
                       <option key={motor.id} value={motor.id}>
                         {motor.model}
                       </option>
@@ -55,8 +69,8 @@ const AddReservation = () => {
                 )
                 : ''}
 
-              <input type="text" className="form-control w-25" placeholder="City " required />
-              <input type="date" />
+              <input type="text" className="form-control w-25" placeholder="City " onChange={handleChange} required />
+              <input type="date" onChange={handleChange} />
               <button className="reserve-btn rounded-pill" type="button">Reserve</button>
             </form>
           </div>
@@ -66,4 +80,9 @@ const AddReservation = () => {
   }
   return null;
 };
+
+AddReservation.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
+
 export default AddReservation;
