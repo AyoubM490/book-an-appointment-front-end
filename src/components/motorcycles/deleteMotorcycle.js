@@ -20,8 +20,8 @@ const DeleteMotorcycle = () => {
         <thead>
           <tr>
             <th scope="col">Model</th>
-            <th scope="col">Duration</th>
             <th scope="col">Price</th>
+            <th scope="col">Duration</th>
             <th scope="col">Action</th>
           </tr>
         </thead>

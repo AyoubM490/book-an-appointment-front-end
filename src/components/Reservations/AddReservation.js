@@ -15,6 +15,7 @@ const AddReservation = ({ userId }) => {
   };
   const dispatch = useDispatch();
   const location = useLocation();
+
   useEffect(() => {
     dispatch(fetchMotorcycles());
   }, []);
