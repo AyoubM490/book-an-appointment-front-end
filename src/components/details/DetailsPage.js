@@ -18,7 +18,7 @@ const DetailsPage = () => {
         ? (
           <>
             <section className=" d-flex align-items-center details-image px-3">
-              <img src={motorcycle.image} alt="Motorcycle" className="w-100" />
+              <img src={motorcycle.image && motorcycle.image.url} alt="Motorcycle" className="w-100" />
             </section>
             <section className="details-sideview d-flex h-100">
               <SideView motorcycle={motorcycle} />

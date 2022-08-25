@@ -57,7 +57,7 @@ const SideView = (props) => {
         </tbody>
       </table>
       <div className="d-flex justify-content-center mt-5 pt-5 ">
-        <Link to="/reserve/add" className="d-flex justify-content-between p-2 w-75 text-white reserve-button">
+        <Link to={`/reserve/add?motor_id=${motorcycle.id}`} className="d-flex justify-content-between p-2 w-75 text-white reserve-button">
           <FontAwesomeIcon icon={faGear} fontSize="20px" />
           Reserve
           <FontAwesomeIcon icon={faArrowCircleRight} fontSize="20px" />

@@ -33,7 +33,7 @@ const Navigation = () => (
         <NavLink
           to="/reservations"
           activeClassName="active"
-          className="nav-link p-3"
+          className="nav-link p-2"
         >
           MY RESERVATIONS
         </NavLink>
