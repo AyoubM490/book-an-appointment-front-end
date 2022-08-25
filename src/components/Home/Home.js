@@ -21,9 +21,8 @@ const Home = () => {
       <div className="show-motor">
         <Carousel
           autoPlay
-          className="w-75"
+          className="w-100"
           keyBoardControl
-          itemClass="mr-10"
           responsive={responsive([3, 2, 1])}
         >
           { motors.length > 0

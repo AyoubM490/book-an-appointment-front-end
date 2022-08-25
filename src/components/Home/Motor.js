@@ -19,7 +19,7 @@ const Motor = (motor) => {
       <Card style={{ width: '18rem', border: 'none' }}>
         <Link to={`/motorcycle/${id}`}>
           <div className="motor-image-wrap">
-            <Card.Img variant="top" style={{ width: '330px', height: '200px' }} src={image.url} className="motor-image" />
+            <Card.Img variant="top" style={{ width: '350px', height: '200px' }} src={image} className="motor-image" />
           </div>
           <Card.Body>
             <Card.Title><p className="text-dark text-center">{model.toUpperCase()}</p></Card.Title>
