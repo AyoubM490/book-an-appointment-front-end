@@ -17,7 +17,6 @@ const AddReservation = () => {
   const [isOpen, setIsOpen] = useState(true);
   const close = () => {
     setIsOpen(false);
-    console.log(isOpen);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,9 +47,9 @@ const AddReservation = () => {
                 ? (
                   <select>
                     {motors.map((motor) => (
-                    <option key={motor.id} value={motor.id}>
-                      {motor.model}
-                    </option>
+                      <option key={motor.id} value={motor.id}>
+                        {motor.model}
+                      </option>
                     ))}
                   </select>
                 )
