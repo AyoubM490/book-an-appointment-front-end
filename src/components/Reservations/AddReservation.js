@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux/es/exports';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './AddReservation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
+import {fetchMotorcycles} from '../../redux/motorcycles/motorcycles';
 import { createReservation } from '../../redux/reservations/reservations';
 
 const AddReservation = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMotorcycles());
+  }, []);
+  const motors = useSelector((state) => state.motorcycles);
   const [isOpen, setIsOpen] = useState(true);
   const close = () => {
     setIsOpen(false);
@@ -38,6 +42,13 @@ const AddReservation = () => {
               dedication to the rider.
             </p>
             <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={handleSubmit}>
+              <select>
+                {motors.map((motor) => (
+                  <option key={motor.id} value={motor.id}>
+                    {motor.model}
+                  </option> ))}
+              </select>
+            
               <input type="text" className="form-control w-25" placeholder="City " required />
               <input type = "date" />   
               <button className="reserve-btn rounded-pill" type="button">Reserve</button>
