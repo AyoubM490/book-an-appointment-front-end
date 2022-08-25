@@ -6,7 +6,7 @@ import authReducer from './auth';
 import reservationsReducer from './reservations/reservations';
 
 const reducer = combineReducers({
-  motorcycle: motorcylesReducer,
+  motorcycles: motorcylesReducer,
   auth: authReducer,
   reservations: reservationsReducer,
 });
