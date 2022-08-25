@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../../redux/reservations/reservations';
 import Reservation from './Reservation';
+import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 
 const MyReservationsPage = ({ userId }) => {
   const reservations = useSelector((state) => state.reservations);
+  const motorcycles = useSelector((state) => state.motorcycles);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchReservations(userId));
   }, [userId]);
+
+  useEffect(() => {
+    dispatch(fetchMotorcycles());
+  }, [dispatch]);
 
   return (
     <div className="p-3 w-100">
@@ -27,8 +33,12 @@ const MyReservationsPage = ({ userId }) => {
                 </tr>
               </thead>
               <tbody className="table-body">
-                { reservations.map((reservation) => (
-                  <Reservation key={reservation.id} reservation={reservation} />
+                { reservations.length > 0 && reservations.map((reservation) => (
+                  <Reservation
+                    key={reservation.id}
+                    reservation={reservation}
+                    motorcycles={motorcycles}
+                  />
                 ))}
               </tbody>
             </table>

@@ -8,7 +8,7 @@ export default function Motorcycle({ motor }) {
 
   function handleDelete(e, id) {
     e.preventDefault();
-    dispatch(deleteMotorcycle(id));
+    window.confirm('Are you sure you want to delete this motorcycle?') && dispatch(deleteMotorcycle(id));
   }
   return (
     <tr key={motor.id}>

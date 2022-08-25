@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleMotorcycle } from '../../redux/motorcycles/motorcycles';
 
 const Reservation = (props) => {
-  const motorcycle = useSelector((state) => state.motorcycles);
-  const dispatch = useDispatch();
-  const { reservation } = props;
-
-  useEffect(() => {
-    dispatch(fetchSingleMotorcycle(reservation.motorcycle_id));
-  }, [reservation]);
+  const { reservation, motorcycles } = props;
+  const motorcycle = motorcycles.length > 0
+    && motorcycles.find((motor) => motor.id === reservation.motorcycle_id);
 
   return (
     <tr>
@@ -23,6 +17,7 @@ const Reservation = (props) => {
 
 Reservation.propTypes = {
   reservation: PropTypes.arrayOf.isRequired,
+  motorcycles: PropTypes.arrayOf.isRequired,
 };
 
 export default Reservation;

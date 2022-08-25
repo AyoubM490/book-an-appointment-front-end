@@ -1,26 +1,59 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './AddReservation.css';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useLocation } from 'react-router-dom';
+
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 import { createReservation } from '../../redux/reservations/reservations';
 
-const AddReservation = () => {
+const AddReservation = ({ userId }) => {
+  const getData = {
+    city: '',
+    date: '',
+  };
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchMotorcycles());
   }, []);
   const motors = useSelector((state) => state.motorcycles);
   const [isOpen, setIsOpen] = useState(true);
+  const [reservation, setReservation] = useState(getData);
+  const [motorId, setMotorId] = useState();
   const close = () => {
     setIsOpen(false);
+    navigate(-1);
   };
+
+  const handleChange = (e) => {
+    setReservation(
+      {
+        ...reservation,
+        [e.target.name]: e.target.value,
+      },
+    );
+  };
+
+  useEffect(() => {
+    if (location.state !== null) {
+      const { motorId } = location.state;
+      setMotorId(motorId);
+    }
+  }, [motorId]);
+
+  const handleMotor = (e) => {
+    setMotorId(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createReservation());
+    dispatch(createReservation(reservation, userId, motorId));
+    navigate('/reservations');
   };
   if (isOpen) {
     return (
@@ -42,11 +75,11 @@ const AddReservation = () => {
               engineering excellence and
               dedication to the rider.
             </p>
-            <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={handleSubmit}>
-              {location.pathname.indexOf('motor_id') === -1
+            <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={(e) => handleSubmit(e)}>
+              {location.state === null
                 ? (
-                  <select>
-                    {motors.map((motor) => (
+                  <select onChange={handleMotor}>
+                    {motors.length > 0 && motors.map((motor) => (
                       <option key={motor.id} value={motor.id}>
                         {motor.model}
                       </option>
@@ -55,9 +88,9 @@ const AddReservation = () => {
                 )
                 : ''}
 
-              <input type="text" className="form-control w-25" placeholder="City " required />
-              <input type="date" />
-              <button className="reserve-btn rounded-pill" type="button">Reserve</button>
+              <input type="text" name="city" className="form-control w-25" placeholder="City " onChange={handleChange} required />
+              <input type="date" name="date" onChange={handleChange} />
+              <button className="reserve-btn rounded-pill" type="submit">Reserve</button>
             </form>
           </div>
         </div>
@@ -66,4 +99,9 @@ const AddReservation = () => {
   }
   return null;
 };
+
+AddReservation.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
+
 export default AddReservation;

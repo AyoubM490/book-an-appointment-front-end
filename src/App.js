@@ -1,4 +1,7 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import React from 'react';
+import {
+  Route, Routes, useLocation, Navigate,
+} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import HomePage from './pages/home/HomePage';
 import SignUpPage from './pages/signup/SignUp';
@@ -6,7 +9,7 @@ import SignInPage from './pages/signin/SignIn';
 import Navigation from './layout/navigation/Sidebar';
 import AddReservation from './components/Reservations/AddReservation';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyReservationsPage from './components/reservations/MyReservationsPage';
+import MyReservationsPage from './components/Reservations/MyReservationsPage';
 import DetailsPage from './components/details/DetailsPage';
 import Home from './components/Home/Home';
 import AddMotorcycle from './components/motorcycles/addMotorcycle';
@@ -25,10 +28,46 @@ function App() {
         ? <Navigation />
         : '' }
       <Routes>
-        <Route path="/" element={(<HomePage />)} />
-        <Route path="/signin" element={(<SignInPage />)} />
-        <Route path="/signup" element={(<SignUpPage />)} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/"
+          element={
+          currentUser.token === null ? (
+            <HomePage />
+          ) : (
+            <Navigate to="/home" />
+          )
+        }
+        />
+        <Route
+          path="/signin"
+          element={
+          currentUser.token === null ? (
+            <SignInPage />
+          ) : (
+            <Navigate to="/home" />
+          )
+        }
+        />
+        <Route
+          path="/signup"
+          element={
+          currentUser.token === null ? (
+            <SignUpPage />
+          ) : (
+            <Navigate to="/home" />
+          )
+        }
+        />
+        <Route
+          path="/home"
+          element={
+            currentUser.token && currentUser.token !== null ? (
+              <Home />
+            ) : (
+              <Navigate to="/signin" />
+            )
+          }
+        />
         <Route
           exact="true"
           path="/reservations"
@@ -36,7 +75,7 @@ function App() {
             currentUser.token && currentUser.token !== null ? (
               <MyReservationsPage userId={currentUser.currentUser.id} />
             ) : (
-              'Redirect to Login Page'
+              <Navigate to="/signin" />
             )
           }
         />
@@ -45,14 +84,36 @@ function App() {
           path="/motorcycles/:id"
           element={
           currentUser.token && currentUser.token !== null
-            ? <DetailsPage userId={currentUser.currentUser.id} />
-            : 'Redirect to Login Page'
+            ? <DetailsPage />
+            : <Navigate to="/signin" />
           }
         />
 
-        <Route path="/delete-motorcycle" element={<DeleteMotorcycle />} />
-        <Route exact path="/add-motorcycle" element={<AddMotorcycle />} />
-        <Route path="/add-reservation" element={<AddReservation />} />
+        <Route
+          path="/delete-motorcycle"
+          element={
+          currentUser.token && currentUser.token !== null
+            ? <DeleteMotorcycle />
+            : <Navigate to="/signin" />
+          }
+        />
+        <Route
+          exact
+          path="/add-motorcycle"
+          element={
+           currentUser.token && currentUser.token !== null
+             ? <AddMotorcycle />
+             : <Navigate to="/signin" />
+         }
+        />
+        <Route
+          path="/reserve/add"
+          element={
+          currentUser.token && currentUser.token !== null
+            ? <AddReservation userId={currentUser.currentUser.id} />
+            : <Navigate to="/signin" />
+        }
+        />
 
       </Routes>
     </div>
