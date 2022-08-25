@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Navigation from './layout/navigation/Sidebar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home/Home';
 import AddMotorcycle from './components/motorcycles/addMotorcycle';
 import DeleteMotorcycle from './components/motorcycles/deleteMotorcycle';
 import './App.css';
@@ -11,9 +12,10 @@ function App() {
   const currentUser = useSelector((state) => state.auth);
 
   return (
-    <div className="App d-flex">
+    <div className="App d-flex w-100">
       <Navigation />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           exact="true"
           path="/reservations"
