@@ -31,7 +31,6 @@
    ```
    npm install
    ```
-    ```
 4. To run the server use:
    ```
    npm start
@@ -87,4 +86,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](https://github.com/AyoubMs/book-an-appointment-front-end/blob/dev/MIT.md) licensed.
