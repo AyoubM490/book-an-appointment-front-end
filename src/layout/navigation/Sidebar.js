@@ -36,7 +36,7 @@ const Navigation = () => {
         </Link>
       </div>
       <div className="d-flex flex-column center-align">
-        <NavLink to="#" exact activeClassName="active" className="nav-link p-2">
+        <NavLink to="/home" exact activeClassName="active" className="nav-link p-2">
           MOTORCYCLES
         </NavLink>
         <NavLink to="/reserve/add" activeClassName="active" className="nav-link p-2">
@@ -65,7 +65,7 @@ const Navigation = () => {
         </NavLink>
       </div>
     </div>
-    <button type='button' onClick={handleClick}>Sign out</button>
+    <button type='button' className='btn btn-secondary w-50 d-flex align-self-center justify-content-center' onClick={handleClick}>Sign out</button>
     <div className="d-flex flex-column align-items-center justify-content-center ">
       <p className="social-wraper">
         <a href="https://www.twitter.com" className="twitter social text-black-50 px-1">
