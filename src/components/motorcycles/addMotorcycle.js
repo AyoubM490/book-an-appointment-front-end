@@ -1,54 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
 
 const AddMotorcycle = () => {
-  const getData = () => ({
+  const getData = {
     model: '',
     price: 0,
     duration_months: 0,
     description: '',
     image: '',
-  });
+  };
   const [formData, setFormData] = useState(getData);
 
   const dispatch = useDispatch();
 
   const currentUser = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    localStorage.setItem('formData', JSON.stringify(formData));
-  }, [formData]);
-
-  const modelHandle = (e) => {
-    setFormData({ ...formData, model: e.target.value });
-  };
-
-  const priceHandle = (e) => {
-    setFormData({ ...formData, price: e.target.value });
-  };
-
-  const durationHandle = (e) => {
-    setFormData({ ...formData, duration_months: e.target.value });
-  };
-
-  const descriptionHandle = (e) => {
-    setFormData({ ...formData, description: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const imageHandle = (e) => {
-    setFormData({ ...formData, image: e.target.value });
+    setFormData({ ...formData, image: e.target.files[0] });
   };
 
-  const submitHandle = () => {
-    dispatch(createMotorcycle(formData, currentUser.currentUser.id));
+  const submitHandle = (e) => {
+    e.preventDefault();
+    const newFormData = new FormData();
+    newFormData.append('motors[model]', formData.model);
+    newFormData.append('motors[price]', formData.price);
+    newFormData.append('motors[duration_months]', formData.duration_months);
+    newFormData.append('motors[description]', formData.description);
+    newFormData.append('motors[image]', formData.image);
+    dispatch(createMotorcycle(newFormData, currentUser.currentUser.id));
   };
 
   return (
     <div className="form">
       <h2>Add your Motor</h2>
 
-      <form onSubmit={submitHandle} className="form">
+      <form onSubmit={(e) => submitHandle(e)} className="form">
         <label className="form-label" htmlFor="model">
           Model
           <input
@@ -56,7 +47,7 @@ const AddMotorcycle = () => {
             name="model"
             className="form-control"
             value={formData.model}
-            onChange={modelHandle}
+            onChange={handleChange}
             placeholder="Your model.."
             id="model"
             required
@@ -69,7 +60,7 @@ const AddMotorcycle = () => {
             name="price"
             className="form-control"
             value={formData.price}
-            onChange={priceHandle}
+            onChange={handleChange}
             placeholder="Your price"
             id="price"
             required
@@ -82,7 +73,7 @@ const AddMotorcycle = () => {
             name="duration_months"
             className="form-control"
             value={formData.duration_months}
-            onChange={durationHandle}
+            onChange={handleChange}
             placeholder="Your duration"
             id="duration"
             required
@@ -94,7 +85,7 @@ const AddMotorcycle = () => {
             name="description"
             value={formData.description}
             className="form-control"
-            onChange={descriptionHandle}
+            onChange={handleChange}
             placeholder="Your description.."
             id="description"
             required
@@ -102,18 +93,19 @@ const AddMotorcycle = () => {
         </label>
         <label className="form-label" htmlFor="image">
           Image
-          <input type="file" id="image" name="image" accept="image/png, image/jpeg" className="form-control" onChange={imageHandle} />
-        </label>
-        <label className="form-label" htmlFor="submit">
           <input
-            type="submit"
-            className="btn btn-primary mt-3"
-            value="Add to the Database"
-            id="submit"
+            type="file"
+            id="image"
+            name="image"
+            accept="image/png, image/jpeg"
+            className="form-control"
+            onChange={imageHandle}
           />
         </label>
+        <button type="submit" className="btn btn-primary mt-3" id="submit">
+          Add to the Database
+        </button>
       </form>
-
     </div>
   );
 };

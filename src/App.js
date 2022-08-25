@@ -1,13 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './layout/navigation/Sidebar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home/Home';
 import AddMotorcycle from './components/motorcycles/addMotorcycle';
 import DeleteMotorcycle from './components/motorcycles/deleteMotorcycle';
 import './App.css';
-
-import MyReservationsPage from './components/reservations/MyReservationsPage';
+import MyReservationsPage from './components/pages/MyReservationsPage';
 
 function App() {
   const currentUser = useSelector((state) => state.auth);
@@ -28,6 +27,7 @@ function App() {
             )
           }
         />
+        <Route path="/add-motorcycle" element={<AddMotorcycle />} />
         <Route path="/delete-motorcycle" element={<DeleteMotorcycle />} />
         <Route exact path="/add-motorcycle" element={<AddMotorcycle />} />
       </Routes>
