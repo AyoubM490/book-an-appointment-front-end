@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchMotorcycles());
   }, []);
-  const motors = useSelector((state) => state.motorcycle);
+  const motors = useSelector((state) => state.motorcycles);
 
   return (
     <div className="text-center">
