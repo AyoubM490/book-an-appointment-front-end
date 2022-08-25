@@ -9,6 +9,10 @@ import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 import { createReservation } from '../../redux/reservations/reservations';
 
 const AddReservation = ({ userId }) => {
+  const getData = {
+    city: '',
+    date: '',
+  };
   const dispatch = useDispatch();
   const location = useLocation();
   useEffect(() => {
@@ -16,16 +20,19 @@ const AddReservation = ({ userId }) => {
   }, []);
   const motors = useSelector((state) => state.motorcycles);
   const [isOpen, setIsOpen] = useState(true);
-  const [reservation, setReservation] = useState({});
+  const [reservation, setReservation] = useState(getData);
   const [motorId, setMotorId] = useState();
   const close = () => {
     setIsOpen(false);
   };
 
   const handleChange = (e) => {
-    setReservation({
-      [e.target.name]: e.target.value,
-    });
+    setReservation(
+      {
+        ...reservation,
+        [e.target.name]: e.target.value,
+      },
+    );
   };
 
   const handleMotor = (e) => {
@@ -34,7 +41,7 @@ const AddReservation = ({ userId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createReservation(reservation, motorId, userId));
+    dispatch(createReservation(reservation, userId, motorId));
   };
   if (isOpen) {
     return (
@@ -56,11 +63,11 @@ const AddReservation = ({ userId }) => {
               engineering excellence and
               dedication to the rider.
             </p>
-            <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={handleSubmit}>
+            <form className="d-flex justify-content-center w-50 mx-auto" onSubmit={(e) => handleSubmit(e)}>
               {location.pathname.indexOf('motor_id') === -1
                 ? (
                   <select onChange={handleMotor}>
-                    {motors && motors.map((motor) => (
+                    {motors.length > 0 && motors.map((motor) => (
                       <option key={motor.id} value={motor.id}>
                         {motor.model}
                       </option>
@@ -69,9 +76,9 @@ const AddReservation = ({ userId }) => {
                 )
                 : ''}
 
-              <input type="text" className="form-control w-25" placeholder="City " onChange={handleChange} required />
-              <input type="date" onChange={handleChange} />
-              <button className="reserve-btn rounded-pill" type="button">Reserve</button>
+              <input type="text" name="city" className="form-control w-25" placeholder="City " onChange={handleChange} required />
+              <input type="date" name="date" onChange={handleChange} />
+              <button className="reserve-btn rounded-pill" type="submit">Reserve</button>
             </form>
           </div>
         </div>

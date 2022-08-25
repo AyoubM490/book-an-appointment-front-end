@@ -83,7 +83,7 @@ function App() {
           path="/motorcycles/:id"
           element={
           currentUser.token && currentUser.token !== null
-            ? <DetailsPage userId={currentUser.currentUser.id} />
+            ? <DetailsPage />
             : <Navigate to="/signin" />
           }
         />
@@ -109,7 +109,7 @@ function App() {
           path="/reserve/add"
           element={
           currentUser.token && currentUser.token !== null
-            ? <AddReservation />
+            ? <AddReservation userId={currentUser.currentUser.id} />
             : <Navigate to="/signin" />
         }
         />
