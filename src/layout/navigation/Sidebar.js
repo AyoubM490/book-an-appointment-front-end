@@ -44,7 +44,11 @@ const Navigation = () => (
         >
           ADD MOTORCYCLE
         </NavLink>
-        <NavLink to="#" activeClassName="active" className="nav-link p-2">
+        <NavLink
+          to="delete-motorcycle"
+          activeClassName="active"
+          className="nav-link p-2"
+        >
           DELETE MOTORCYCLE
         </NavLink>
       </div>
