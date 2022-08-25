@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AddMotorcycle from './components/motorcycles/addMotorcycle';
 import DeleteMotorcycle from './components/motorcycles/deleteMotorcycle';
 import './App.css';
-import MyReservationsPage from './components/reservations/MyReservationsPage';
+import MyReservationsPage from './components/pages/MyReservationsPage';
 
 function App() {
   const currentUser = useSelector((state) => state.auth);
