@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App d-flex">
-    { (pathname.indexOf('sign') !== 1 && pathname.length !== 1) || (pathname.indexOf('sign') !== 1 && pathname.endsWith('/') === false)
+      { (pathname.indexOf('sign') !== 1 && pathname.length !== 1) || (pathname.indexOf('sign') !== 1 && pathname.endsWith('/') === false)
         ? <Navigation />
         : '' }
       <Routes>
