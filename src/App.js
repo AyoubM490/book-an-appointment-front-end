@@ -4,6 +4,7 @@ import HomePage from './pages/home/HomePage';
 import SignUpPage from './pages/signup/SignUp';
 import SignInPage from './pages/signin/SignIn';
 import Navigation from './layout/navigation/Sidebar';
+import AddReservation from './components/Reservations/AddReservation';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyReservationsPage from './components/reservations/MyReservationsPage';
 import DetailsPage from './components/details/DetailsPage';
@@ -48,9 +49,11 @@ function App() {
             : 'Redirect to Login Page'
           }
         />
-        <Route path="/add-motorcycle" element={<AddMotorcycle />} />
+
         <Route path="/delete-motorcycle" element={<DeleteMotorcycle />} />
         <Route exact path="/add-motorcycle" element={<AddMotorcycle />} />
+        <Route path="/add-reservation" element={<AddReservation />} />
+
       </Routes>
     </div>
   );
