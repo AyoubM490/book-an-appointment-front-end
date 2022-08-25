@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './AddReservation.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useLocation } from 'react-router-dom';
+
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 import { createReservation } from '../../redux/reservations/reservations';
 

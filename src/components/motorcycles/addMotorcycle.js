@@ -24,7 +24,7 @@ const AddMotorcycle = () => {
   const imageHandle = (e) => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const submitHandle = (e) => {
     e.preventDefault();
     const newFormData = new FormData();
