@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { createMotorcycle } from '../../redux/motorcycles/motorcycles';
 
 const AddMotorcycle = () => {
@@ -23,7 +24,7 @@ const AddMotorcycle = () => {
   const imageHandle = (e) => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
-
+const navigate = useNavigate();
   const submitHandle = (e) => {
     e.preventDefault();
     const newFormData = new FormData();
@@ -33,6 +34,7 @@ const AddMotorcycle = () => {
     newFormData.append('motors[description]', formData.description);
     newFormData.append('motors[image]', formData.image);
     dispatch(createMotorcycle(newFormData, currentUser.currentUser.id));
+    navigate('/home');
   };
 
   return (
@@ -74,7 +76,7 @@ const AddMotorcycle = () => {
             className="form-control"
             value={formData.duration_months}
             onChange={handleChange}
-            placeholder="Your duration"
+            placeholder="Number of months"
             id="duration"
             required
           />
