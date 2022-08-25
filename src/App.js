@@ -9,7 +9,7 @@ function App() {
   const currentUser = useSelector((state) => state.auth);
 
   return (
-    <div className="App d-flex">
+    <div className="App d-flex w-100">
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />

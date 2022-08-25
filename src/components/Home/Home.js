@@ -15,10 +15,10 @@ const Home = () => {
   const motors = useSelector((state) => state.motorcycles);
 
   return (
-    <div className="text-center">
+    <div className="text-center w-75">
       <h2 className="text-center m-4">POWER MOTORS LATEST MODELS</h2>
       <p className="text-center header-text2 m-2">Please select a power models</p>
-      <div className="show-motor w-100">
+      <div className="show-motor">
         <Carousel
           autoPlay
           className="w-75"
