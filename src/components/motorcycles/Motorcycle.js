@@ -8,7 +8,7 @@ export default function Motorcycle({ motor }) {
 
   function handleDelete(e, id) {
     e.preventDefault();
-    window.confirm('Are you sure you want to delete this motorcycle?') && dispatch(deleteMotorcycle(id));
+    dispatch(deleteMotorcycle(id));
   }
   return (
     <tr key={motor.id}>
@@ -29,6 +29,5 @@ export default function Motorcycle({ motor }) {
 }
 
 Motorcycle.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
-  motor: PropTypes.object,
+  motor: PropTypes.arrayOf.isRequired,
 };
