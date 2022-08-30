@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://power-motorcycles-api.herokuapp.com/api';
+const baseURL = 'https://motorcycle-bookings-app.herokuapp.com/api';
 
 const API = {
   login: (user, success) => {
