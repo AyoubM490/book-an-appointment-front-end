@@ -13,7 +13,7 @@
 - React
 - bootstrap
 
- [Back-end link](https://github.com/sentayhu19/Book-an-appointment-back-end)
+ [Back-end link](https://github.com/Achilles-Dev/Book-an-appointment-back-end)
  ## Live Demo
  - [Motorcycle-booking-service-front-end](https://power-motorcycle.herokuapp.com/)
 
@@ -24,10 +24,10 @@
 
 1. clone the repository to you machine using your terminal:
    ```
-   git clone git@github.com:AyoubMs/book-an-appointment-front-end.git
+   git clone https://github.com/Achilles-Dev/book-an-appointment-front-end.git
    ```
    ```
-   cd booking-an-appointment-back-end
+   cd book-an-appointment-front-end
    ```
 2. Install the npm:
    ```
