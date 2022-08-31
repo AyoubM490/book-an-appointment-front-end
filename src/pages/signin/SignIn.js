@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/index';
 
 const SignInPage = () => {
+  const token = useSelector((state) => state.auth.token);
   const [username, setUsername] = useState('');
+  const [message, setMessage] = useState('');
   const handleChange = (e) => {
     setUsername(e.target.value);
   };
@@ -16,12 +18,17 @@ const SignInPage = () => {
       name: username,
     };
     dispatch(login(user));
-    navigate('/home');
+    if (token === null) {
+      setMessage('User is not registered, Register user to continue');
+    } else {
+      navigate('/home');
+    }
   };
 
   return (
     <>
-      <div className="container mt-5 ml-1 col-sm-4">
+      <div className="container mt-5 ml-1 col-sm-6">
+        <p className="text-danger p-3">{message}</p>
         <form onSubmit={(e) => handleSubmit(e)} className="form">
           <h3 className="text-center">
             LogIn
@@ -39,6 +46,11 @@ const SignInPage = () => {
           <button type="submit" className="btn btn-success">
             LogIn
           </button>
+          {message !== '' ? (
+            <Link to="/signup" className="btn btn-success mt-3">
+              Register
+            </Link>
+          ) : ''}
         </form>
       </div>
     </>
