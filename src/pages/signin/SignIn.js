@@ -44,11 +44,11 @@ const SignInPage = () => {
             />
           </div>
           <button type="submit" className="btn btn-success">
-            LogIn
+            Login
           </button>
           {message !== '' ? (
             <Link to="/signup" className="btn btn-success mt-3">
-              Register
+              Signup
             </Link>
           ) : ''}
         </form>

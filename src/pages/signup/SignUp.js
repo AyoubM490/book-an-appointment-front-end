@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../redux/auth/index';
 
 const SignUpPage = () => {
+  const token = useSelector((state) => state.auth.token);
+  const [message, setMessage] = useState('');
   const [username, setUsername] = useState('');
 
   const dispatch = useDispatch();
@@ -15,7 +17,11 @@ const SignUpPage = () => {
     };
 
     dispatch(signup(user));
-    navigate('/home');
+    if (token === null) {
+      setMessage('User already exists, Login to continue');
+    } else {
+      navigate('/home');
+    }
   };
 
   const handleOnChange = (e) => {
@@ -24,7 +30,8 @@ const SignUpPage = () => {
 
   return (
     <>
-      <div className="container mt-5 ml-1 col-sm-4">
+      <div className="container mt-5 ml-1 col-sm-6">
+        <p className="text-danger p-3">{message}</p>
         <form onSubmit={handleSubmit} className="form m-2">
           <h3 className="text-center">
             SignUp
@@ -39,7 +46,12 @@ const SignUpPage = () => {
               value={username}
             />
           </div>
-          <button className="btn btn-success" type="submit">signup</button>
+          <button className="btn btn-success" type="submit">Signup</button>
+          {message !== '' ? (
+            <Link to="/signin" className="btn btn-success mt-3">
+              Login
+            </Link>
+          ) : ''}
         </form>
       </div>
     </>
