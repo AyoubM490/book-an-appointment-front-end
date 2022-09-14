@@ -21,24 +21,33 @@ const Navigation = () => {
     navigate('/');
   };
   return (
-
-    <nav className="sidenav">
+    <nav className="sidenav" data-test="navigationComponent">
       <div
         className="d-flex flex-column justify-content-between"
         style={{ height: '50%' }}
+        data-test="navigationLinks"
       >
-        <div>
+        <div data-test="logo">
           <Link to="/">
             <h1 className="text-center text-dark">
               <i>Power Motors</i>
             </h1>
           </Link>
         </div>
-        <div className="d-flex flex-column center-align">
-          <NavLink to="/home" exact activeClassName="active" className="nav-link p-2">
+        <div className="d-flex flex-column center-align" data-test="navLinks">
+          <NavLink
+            to="/home"
+            exact
+            activeClassName="active"
+            className="nav-link p-2"
+          >
             MOTORCYCLES
           </NavLink>
-          <NavLink to="/reserve/add" activeClassName="active" className="nav-link p-2">
+          <NavLink
+            to="/reserve/add"
+            activeClassName="active"
+            className="nav-link p-2"
+          >
             RESERVE
           </NavLink>
           <NavLink
@@ -64,10 +73,23 @@ const Navigation = () => {
           </NavLink>
         </div>
       </div>
-      <button type="button" className="btn btn-secondary w-50 d-flex align-self-center justify-content-center" onClick={handleClick}>Sign out</button>
-      <div className="d-flex flex-column align-items-center justify-content-center ">
+      <button
+        type="button"
+        className="btn btn-secondary w-50 d-flex align-self-center justify-content-center"
+        onClick={handleClick}
+        data-test="signOutButton"
+      >
+        Sign out
+      </button>
+      <div
+        className="d-flex flex-column align-items-center justify-content-center"
+        data-test="socialMediaIcons"
+      >
         <p className="social-wraper">
-          <a href="https://www.twitter.com" className="twitter social text-black-50 px-1">
+          <a
+            href="https://www.twitter.com"
+            className="twitter social text-black-50 px-1"
+          >
             <FontAwesomeIcon icon={faTwitter} fontSize="23px" />
           </a>
           <a
@@ -96,7 +118,7 @@ const Navigation = () => {
             <FontAwesomeIcon icon={faInstagram} fontSize="23px" />
           </a>
         </p>
-        <div> &copy; 2022 Power Motors Inc.</div>
+        <div data-test="copyRightText"> &copy; 2022 Power Motors Inc.</div>
       </div>
     </nav>
   );
