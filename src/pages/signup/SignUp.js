@@ -24,9 +24,12 @@ const SignUpPage = () => {
 
   return (
     <>
-      <div className="container mt-5 ml-1 col-sm-4">
-        <form onSubmit={handleSubmit} className="form m-2">
-          <h3 className="text-center">
+      <div
+        className="container mt-5 ml-1 col-sm-4"
+        data-test="signUpPageComponent"
+      >
+        <form onSubmit={handleSubmit} className="form m-2" data-test="form">
+          <h3 className="text-center" data-test="signUpText">
             SignUp
           </h3>
           <div className="mb-3">
@@ -37,9 +40,16 @@ const SignUpPage = () => {
               placeholder="User name"
               onChange={handleOnChange}
               value={username}
+              data-test="usernameInput"
             />
           </div>
-          <button className="btn btn-success" type="submit">signup</button>
+          <button
+            className="btn btn-success"
+            type="submit"
+            data-test="submitButton"
+          >
+            signup
+          </button>
         </form>
       </div>
     </>
