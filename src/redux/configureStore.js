@@ -5,10 +5,10 @@ import {
 } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import ReduxThunk from 'redux-thunk';
 import authReducer from './auth';
 import motorcyclesReducer from './motorcycles/motorcycles';
 import reservationsReducer from './reservations/reservations';
-import ReduxThunk from 'redux-thunk';
 
 export const middlewares = [ReduxThunk];
 
