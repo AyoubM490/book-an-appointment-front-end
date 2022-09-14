@@ -20,31 +20,32 @@ const MyReservationsPage = ({ userId }) => {
 
   return (
     <div className="p-3 w-100">
-      { reservations.length > 0
-        ? (
-          <>
-            <h3 className="text-center">My Reservations</h3>
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>Date</th>
-                  <th>City</th>
-                </tr>
-              </thead>
-              <tbody className="table-body">
-                { reservations.length > 0 && reservations.map((reservation) => (
+      {reservations.length > 0 ? (
+        <>
+          <h3 className="text-center">My Reservations</h3>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Date</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            <tbody className="table-body">
+              {reservations.length > 0
+                && reservations.map((reservation) => (
                   <Reservation
                     key={reservation.id}
                     reservation={reservation}
                     motorcycles={motorcycles}
                   />
                 ))}
-              </tbody>
-            </table>
-          </>
-        )
-        : <h2>No Reservations</h2>}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <h2>No Reservations</h2>
+      )}
     </div>
   );
 };
