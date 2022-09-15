@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { mount, shallow } from 'enzyme';
-import findByTestAttr, { checkProps, testStore } from '../../Utils';
+import { shallow } from 'enzyme';
+import findByTestAttr, { checkProps } from '../../Utils';
 import configureStore from 'redux-mock-store';
-import { Provider } from 'react';
 import MyReservationsPage from './MyReservationsPage';
 import thunk from 'redux-thunk';
 
