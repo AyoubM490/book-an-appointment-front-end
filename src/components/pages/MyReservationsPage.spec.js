@@ -52,12 +52,10 @@ describe('MyReservationsPage Component', () => {
       mockUseEffect();
       mockUseEffect();
 
-      useSelector.mockImplementation((callback) =>
-        callback({
-          reservations: store.getState().reservations,
-          motorcycles: store.getState().motorcycles,
-        })
-      );
+      useSelector.mockImplementation((callback) => callback({
+        reservations: store.getState().reservations,
+        motorcycles: store.getState().motorcycles,
+      }));
 
       useDispatch.mockImplementation(() => jest.fn());
 

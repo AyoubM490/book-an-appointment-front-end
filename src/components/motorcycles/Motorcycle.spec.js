@@ -36,8 +36,10 @@ describe('Motorcycle Component', () => {
     it('Should render without errors', () => {
       const component = shallow(
         <Motorcycle
-          motor={{ id: 1, model: 'CBR', price: 100, duration_months: 1 }}
-        />
+          motor={{
+            id: 1, model: 'CBR', price: 100, duration_months: 1,
+          }}
+        />,
       );
       const wrapper = findByTestAttr(component, 'motorcycleComponent');
       expect(wrapper.length).toBe(1);
@@ -46,8 +48,10 @@ describe('Motorcycle Component', () => {
     it("Should render a table data with the motorcycle's model", () => {
       const component = shallow(
         <Motorcycle
-          motor={{ id: 1, model: 'CBR', price: 100, duration_months: 1 }}
-        />
+          motor={{
+            id: 1, model: 'CBR', price: 100, duration_months: 1,
+          }}
+        />,
       );
       const wrapper = findByTestAttr(component, 'motorcycleModel');
       expect(wrapper.length).toBe(1);
@@ -56,8 +60,10 @@ describe('Motorcycle Component', () => {
     it("Should render a table data with the motorcycle's price", () => {
       const component = shallow(
         <Motorcycle
-          motor={{ id: 1, model: 'CBR', price: 100, duration_months: 1 }}
-        />
+          motor={{
+            id: 1, model: 'CBR', price: 100, duration_months: 1,
+          }}
+        />,
       );
       const wrapper = findByTestAttr(component, 'motorcyclePrice');
       expect(wrapper.length).toBe(1);
@@ -66,8 +72,10 @@ describe('Motorcycle Component', () => {
     it("Should render a table data with the motorcycle's duration", () => {
       const component = shallow(
         <Motorcycle
-          motor={{ id: 1, model: 'CBR', price: 100, duration_months: 1 }}
-        />
+          motor={{
+            id: 1, model: 'CBR', price: 100, duration_months: 1,
+          }}
+        />,
       );
       const wrapper = findByTestAttr(component, 'motorcycleDuration');
       expect(wrapper.length).toBe(1);
@@ -76,8 +84,10 @@ describe('Motorcycle Component', () => {
     it("Should render a table data with the motorcycle's button", () => {
       const component = shallow(
         <Motorcycle
-          motor={{ id: 1, model: 'CBR', price: 100, duration_months: 1 }}
-        />
+          motor={{
+            id: 1, model: 'CBR', price: 100, duration_months: 1,
+          }}
+        />,
       );
       const wrapper = findByTestAttr(component, 'motorcycleButton');
       expect(wrapper.length).toBe(1);
@@ -86,8 +96,10 @@ describe('Motorcycle Component', () => {
     it('Should render a delete button', () => {
       const component = shallow(
         <Motorcycle
-          motor={{ id: 1, model: 'CBR', price: 100, duration_months: 1 }}
-        />
+          motor={{
+            id: 1, model: 'CBR', price: 100, duration_months: 1,
+          }}
+        />,
       );
       const wrapper = findByTestAttr(component, 'deleteButton');
       expect(wrapper.length).toBe(1);

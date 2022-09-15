@@ -11,9 +11,8 @@ const DeleteMotorcycle = () => {
     dispatch(fetchMotorcycles());
   }, []);
   const motorcyclesState = useSelector((state) => state.motorcycles);
-  const motorcycles =
-    Array.isArray(motorcyclesState) &&
-    motorcyclesState.map((motor) => (
+  const motorcycles = Array.isArray(motorcyclesState)
+    && motorcyclesState.map((motor) => (
       <Motorcycle key={motor.id} motor={motor} />
     ));
 
@@ -50,7 +49,9 @@ const DeleteMotorcycle = () => {
           <FontAwesomeIcon icon={faCircleInfo} className="text-info h3" />
           <h2 className="w-100 text-center" data-test="noDataTitle">
             There is no motorcycle
-            <FontAwesomeIcon icon={faMotorcycle} /> available
+            <FontAwesomeIcon icon={faMotorcycle} />
+            {' '}
+            available
           </h2>
         </div>
       )}

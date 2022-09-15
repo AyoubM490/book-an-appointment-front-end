@@ -35,11 +35,9 @@ describe('DeleteMotorcycle Component', () => {
     mockUseEffect();
     mockUseEffect();
 
-    useSelector.mockImplementation((callback) =>
-      callback({
-        motorcycles: store.getState().motorcycles,
-      })
-    );
+    useSelector.mockImplementation((callback) => callback({
+      motorcycles: store.getState().motorcycles,
+    }));
 
     useDispatch.mockImplementation(() => jest.fn());
 

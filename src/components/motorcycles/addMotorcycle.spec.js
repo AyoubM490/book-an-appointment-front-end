@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import { useDispatch, useSelector } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { useNavigate } from 'react-router-dom';
-import AddMotorcycle from './addMotorcycle';
 import thunk from 'redux-thunk';
+import AddMotorcycle from './addMotorcycle';
 import findByTestAttr from '../../Utils';
 
 jest.mock('react-redux', () => ({
@@ -35,11 +35,9 @@ describe('AddMotorcycle Component', () => {
       ],
     });
 
-    useSelector.mockImplementation((callback) =>
-      callback({
-        motorcycles: store.getState().motorcycles,
-      })
-    );
+    useSelector.mockImplementation((callback) => callback({
+      motorcycles: store.getState().motorcycles,
+    }));
 
     useDispatch.mockImplementation(() => jest.fn());
     useNavigate.mockImplementation(() => jest.fn());
