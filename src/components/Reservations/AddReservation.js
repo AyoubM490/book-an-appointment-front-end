@@ -89,17 +89,17 @@ const AddReservation = ({ userId }) => {
               onSubmit={(e) => handleSubmit(e)}
               data-test="reserveForm"
             >
-              {location.state === null ? (
+              {location.state === null && (
                 <select data-test="reserveSelect" onChange={handleMotor}>
-                  {motors.length > 0 &&
-                    motors.map((motor) => (
+                  &&
+                  {' '}
+                  {motors.length > 0
+                    && motors.map((motor) => (
                       <option key={motor.id} value={motor.id}>
                         {motor.model}
                       </option>
                     ))}
                 </select>
-              ) : (
-                ''
               )}
 
               <input
