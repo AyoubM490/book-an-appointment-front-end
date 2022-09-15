@@ -11,14 +11,15 @@ export default function Motorcycle({ motor }) {
     dispatch(deleteMotorcycle(id));
   }
   return (
-    <tr key={motor.id}>
-      <td>{motor.model}</td>
-      <td>{motor.price}</td>
-      <td>{motor.duration_months}</td>
-      <td>
+    <tr key={motor.id} data-test="motorcycleComponent">
+      <td data-test="motorcycleModel">{motor.model}</td>
+      <td data-test="motorcyclePrice">{motor.price}</td>
+      <td data-test="motorcycleDuration">{motor.duration_months}</td>
+      <td data-test="motorcycleButton">
         <button
           type="submit"
           className="btn btn-danger"
+          data-test="deleteButton"
           onClick={(e) => handleDelete(e, motor.id)}
         >
           Delete
@@ -29,5 +30,10 @@ export default function Motorcycle({ motor }) {
 }
 
 Motorcycle.propTypes = {
-  motor: PropTypes.arrayOf.isRequired,
+  motor: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    model: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    duration_months: PropTypes.number.isRequired,
+  }).isRequired,
 };
