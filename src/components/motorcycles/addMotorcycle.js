@@ -38,11 +38,11 @@ const AddMotorcycle = () => {
   };
 
   return (
-    <div className="form">
-      <h2>Add your Motor</h2>
+    <div className="form" data-test="addMotorcycleComponent">
+      <h2 data-test="title">Add your Motor</h2>
 
-      <form onSubmit={(e) => submitHandle(e)} className="form">
-        <label className="form-label" htmlFor="model">
+      <form onSubmit={(e) => submitHandle(e)} className="form" data-test="form">
+        <label className="form-label" htmlFor="model" data-test="modelLabel">
           Model
           <input
             type="text"
@@ -52,10 +52,15 @@ const AddMotorcycle = () => {
             onChange={handleChange}
             placeholder="Your model.."
             id="model"
+            data-test="modelInput"
             required
           />
         </label>
-        <label className="form-label mt-3" htmlFor="price">
+        <label
+          className="form-label mt-3"
+          htmlFor="price"
+          data-test="priceLabel"
+        >
           Price
           <input
             type="number"
@@ -65,10 +70,15 @@ const AddMotorcycle = () => {
             onChange={handleChange}
             placeholder="Your price"
             id="price"
+            data-test="priceInput"
             required
           />
         </label>
-        <label className="form-label mt-3" htmlFor="duration">
+        <label
+          className="form-label mt-3"
+          htmlFor="duration"
+          data-test="durationLabel"
+        >
           Duration
           <input
             type="number"
@@ -78,10 +88,15 @@ const AddMotorcycle = () => {
             onChange={handleChange}
             placeholder="Number of months"
             id="duration"
+            data-test="durationInput"
             required
           />
         </label>
-        <label className="form-label mt-3" htmlFor="description">
+        <label
+          className="form-label mt-3"
+          htmlFor="description"
+          data-test="descriptionLabel"
+        >
           Description
           <textarea
             name="description"
@@ -90,10 +105,11 @@ const AddMotorcycle = () => {
             onChange={handleChange}
             placeholder="Your description.."
             id="description"
+            data-test="descriptionInput"
             required
           />
         </label>
-        <label className="form-label" htmlFor="image">
+        <label className="form-label" htmlFor="image" data-test="imageLabel">
           Image
           <input
             type="file"
@@ -101,10 +117,16 @@ const AddMotorcycle = () => {
             name="image"
             accept="image/png, image/jpeg"
             className="form-control"
+            data-test="imageInput"
             onChange={imageHandle}
           />
         </label>
-        <button type="submit" className="btn btn-primary mt-3" id="submit">
+        <button
+          type="submit"
+          className="btn btn-primary mt-3"
+          id="submit"
+          data-test="submitButton"
+        >
           Add to the Database
         </button>
       </form>

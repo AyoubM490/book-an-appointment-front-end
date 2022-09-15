@@ -11,39 +11,50 @@ const DeleteMotorcycle = () => {
     dispatch(fetchMotorcycles());
   }, []);
   const motorcyclesState = useSelector((state) => state.motorcycles);
-  const motorcycles = Array.isArray(motorcyclesState) && motorcyclesState.map((motor) => (
-    <Motorcycle key={motor.id} motor={motor} />
-  ));
+  const motorcycles = Array.isArray(motorcyclesState)
+    && motorcyclesState.map((motor) => (
+      <Motorcycle key={motor.id} motor={motor} />
+    ));
 
   return (
-    <div className="form">
+    <div className="form" data-test="deleteMotorcycleComponent">
       {motorcycles.length > 0 ? (
         <>
-          <h3>Delete Motorcycle</h3>
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Model</th>
-                <th scope="col">Price</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Action</th>
+          <h3 data-test="title">Delete Motorcycle</h3>
+          <table className="table" data-test="table">
+            <thead data-test="tableHeader">
+              <tr data-test="tableRow">
+                <th data-test="tableCell" scope="col">
+                  Model
+                </th>
+                <th data-test="tableCell" scope="col">
+                  Price
+                </th>
+                <th data-test="tableCell" scope="col">
+                  Duration
+                </th>
+                <th data-test="tableCell" scope="col">
+                  Action
+                </th>
               </tr>
             </thead>
-            <tbody>{motorcycles}</tbody>
+            <tbody data-test="tableBody">{motorcycles}</tbody>
           </table>
         </>
       ) : (
-        <div className="dflex flex-column justify-content-center border mx-auto info">
+        <div
+          className="dflex flex-column justify-content-center border mx-auto info"
+          data-test="noData"
+        >
           <FontAwesomeIcon icon={faCircleInfo} className="text-info h3" />
-          <h2 className="w-100 text-center">
+          <h2 className="w-100 text-center" data-test="noDataTitle">
             There is no motorcycle
             <FontAwesomeIcon icon={faMotorcycle} />
             {' '}
-            avilable
+            available
           </h2>
         </div>
       )}
-
     </div>
   );
 };
