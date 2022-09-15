@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { shallow } from 'enzyme';
-import findByTestAttr, { checkProps } from '../../Utils';
 import configureStore from 'redux-mock-store';
-import MyReservationsPage from './MyReservationsPage';
 import thunk from 'redux-thunk';
+import findByTestAttr, { checkProps } from '../../Utils';
+import MyReservationsPage from './MyReservationsPage';
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
@@ -62,12 +62,10 @@ describe('MyReservationsPage Component', () => {
         useDispatch: jest.fn(),
       }));
 
-      useSelector.mockImplementation((callback) => {
-        return callback({
-          reservations: store.getState().reservations,
-          motorcycles: store.getState().motorcycles,
-        });
-      });
+      useSelector.mockImplementation((callback) => callback({
+        reservations: store.getState().reservations,
+        motorcycles: store.getState().motorcycles,
+      }));
 
       wrapper = shallow(<MyReservationsPage userId={1} store={store} />);
     });
@@ -76,7 +74,7 @@ describe('MyReservationsPage Component', () => {
       it('Should render without errors', () => {
         const component = findByTestAttr(
           wrapper,
-          'myReservationsPageComponent'
+          'myReservationsPageComponent',
         );
         expect(component.length).toBe(1);
       });

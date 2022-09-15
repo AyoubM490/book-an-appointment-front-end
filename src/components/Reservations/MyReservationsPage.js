@@ -34,8 +34,8 @@ const MyReservationsPage = ({ userId }) => {
               </tr>
             </thead>
             <tbody className="table-body" data-test="tableBody">
-              {reservations.length > 0 &&
-                reservations.map((reservation) => (
+              {reservations.length > 0
+                && reservations.map((reservation) => (
                   <Reservation
                     key={reservation.id}
                     reservation={reservation}

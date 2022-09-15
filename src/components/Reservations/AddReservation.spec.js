@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import findByTestAttr, { checkProps } from '../../Utils';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import findByTestAttr, { checkProps } from '../../Utils';
 import AddReservation from './AddReservation';
 
 jest.mock('react-redux', () => ({
@@ -53,11 +53,9 @@ describe('AddReservation Component', () => {
       mockUseEffect();
       mockUseEffect();
 
-      useSelector.mockImplementation((callback) => {
-        return callback({
-          motorcycles: store.getState().motorcycles,
-        });
-      });
+      useSelector.mockImplementation((callback) => callback({
+        motorcycles: store.getState().motorcycles,
+      }));
 
       useDispatch.mockImplementation(() => jest.fn());
       useNavigate.mockImplementation(() => jest.fn());

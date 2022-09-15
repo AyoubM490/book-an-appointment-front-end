@@ -4,8 +4,7 @@ import {
   applyMiddleware,
 } from 'redux';
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
-import ReduxThunk from 'redux-thunk';
+import thunk, { ReduxThunk } from 'redux-thunk';
 import authReducer from './auth';
 import motorcyclesReducer from './motorcycles/motorcycles';
 import reservationsReducer from './reservations/reservations';

@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 const Reservation = (props) => {
   const { reservation, motorcycles } = props;
-  const motorcycle =
-    motorcycles.length > 0 &&
-    motorcycles.find((motor) => motor.id === reservation.motorcycle_id);
+  const motorcycle = motorcycles.length > 0
+    && motorcycles.find((motor) => motor.id === reservation.motorcycle_id);
 
   return (
     <div data-test="reservationComponent">
@@ -29,7 +28,7 @@ Reservation.propTypes = {
     PropTypes.shape({
       id: PropTypes.number,
       model: PropTypes.string,
-    })
+    }),
   ).isRequired,
 };
 
