@@ -1,0 +1,38 @@
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 15px;
+  width: 30%;
+  height: 100vh;
+  background-color: #fff !important;
+  border-right: 0.5px solid #dcd9d9;
+  overflow-x: hidden;
+}
+
+.sidenav:active {
+  background-color: #fff !important;
+}
+
+.sidenav:hover {
+  background-color: #fff !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  background-color: rgb(158, 206, 63);
+  color: white;
+  border-radius: 5px;
+}
+
+h1 {
+  font-family: 'vespa', sans-serif;
+}
+
+.center-align {
+  margin: 0 auto;
+}
