@@ -14,7 +14,9 @@ jest.mock('react-redux', () => ({
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn(),
+  useLocation: () => ({
+    state: null,
+  }),
   useNavigate: jest.fn(),
 }));
 
@@ -58,7 +60,6 @@ describe('AddReservation Component', () => {
       });
 
       useDispatch.mockImplementation(() => jest.fn());
-      useLocation.mockImplementation(() => jest.fn());
       useNavigate.mockImplementation(() => jest.fn());
 
       wrapper = shallow(<AddReservation userId={1} store={store} />);
@@ -93,10 +94,10 @@ describe('AddReservation Component', () => {
       expect(component.length).toBe(1);
     });
 
-    // it('Should render a reserve select', () => {
-    //   const component = findByTestAttr(wrapper, 'reserveSelect');
-    //   expect(component.length).toBe(1);
-    // });
+    it('Should render a reserve select', () => {
+      const component = findByTestAttr(wrapper, 'reserveSelect');
+      expect(component.length).toBe(1);
+    });
 
     it('Should render a reserve city', () => {
       const component = findByTestAttr(wrapper, 'reserveCity');
