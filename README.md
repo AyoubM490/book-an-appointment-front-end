@@ -15,7 +15,7 @@
 
  [Back-end link](https://github.com/Achilles-Dev/Book-an-appointment-back-end)
  ## Live Demo
- - [Motorcycle-booking-service-front-end](https://preeminent-vacherin-1e2f8e.netlify.app/)
+ - [Motorcycle-booking-service-front-end](https://power-motors.netlify.app)
 
 
 ## Getting Started
