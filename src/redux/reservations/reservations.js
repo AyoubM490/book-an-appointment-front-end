@@ -54,25 +54,49 @@ export const updateReservation = (id, reservation) => (dispatch) => {
   });
 };
 
-const initialState = [];
+const initialState = {
+  reservations: [],
+  reservation: {},
+  status: 'idle',
+};
 
 const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RESERVATIONS:
-      return action.payload;
+      return {
+        ...state,
+        reservations: action.payload,
+        status: 'succeeded',
+      };
     case CREATE_RESERVATION:
-      return [...state, action.payload];
+      return {
+        ...state,
+        reservations: [...state.reservations, action.payload],
+        status: 'succeeded',
+      };
     case DELETE_RESERVATION:
-      return state.filter((reservation) => reservation.id !== action.payload);
+      return {
+        ...state,
+        reservations: state.reservations.filter((reservation) => reservation.id !== action.payload),
+        status: 'succeeded',
+      };
     case FETCH_SINGLE_RESERVATION:
-      return action.payload;
+      return {
+        ...state,
+        reservation: action.payload,
+        status: 'succeeded',
+      };
     case UPDATE_RESERVATION:
-      return state.map((reservation) => (reservation.id === action.id
-        ? {
-          ...reservation,
-          ...action.payload,
-        }
-        : reservation));
+      return {
+        ...state,
+        reservations: state.reservations.map((reservation) => (reservation.id === action.id
+          ? {
+            ...reservation,
+            ...action.payload,
+          }
+          : reservation)),
+        staus: 'succeeded',
+      };
     default:
       return state;
   }

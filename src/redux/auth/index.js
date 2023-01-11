@@ -31,6 +31,7 @@ export const signup = (payload) => async (dispatch) => {
 const initialState = {
   currentUser: {},
   token: null,
+  status: 'idle'
 };
 
 const reducer = (state = initialState, action) => {

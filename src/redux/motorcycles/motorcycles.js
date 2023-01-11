@@ -54,25 +54,49 @@ export const updateMotorcycle = (id, motorcycle) => (dispatch) => {
   });
 };
 
-const initialState = [];
+const initialState = {
+  motorcycles: [],
+  motorcycle: {},
+  status: 'idle',
+};
 
 const motorcyclesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MOTORCYCLES:
-      return action.payload;
+      return {
+        ...state,
+        motorcycles: action.payload,
+        status: 'succeeded',
+      };
     case CREATE_MOTORCYCLE:
-      return [...state, action.payload];
+      return {
+        ...state,
+        motorcycles: [...state, action.payload],
+        status: 'succeeded',
+      };
     case DELETE_MOTORCYCLE:
-      return state.filter((motorcycle) => motorcycle.id !== action.payload);
+      return {
+        ...state,
+        motorcycles: state.filter((motorcycle) => motorcycle.id !== action.payload),
+        status: 'succeeded',
+      };
     case FETCH_SINGLE_MOTORCYCLE:
-      return action.payload;
+      return {
+        ...state,
+        motorcycle: action.payload,
+        status: 'succeeded',
+      };
     case UPDATE_MOTOR:
-      return state.map((motor) => (motor.id === action.id
-        ? {
-          ...motor,
-          ...action.payload,
-        }
-        : motor));
+      return {
+        ...state,
+        motorcycles: state.map((motor) => (motor.id === action.id
+          ? {
+            ...motor,
+            ...action.payload,
+          }
+          : motor)),
+        status: 'succeeded',
+      };
     default:
       return state;
   }
