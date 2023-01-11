@@ -74,7 +74,7 @@
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/AyoubMs/book-an-appointment-front-end/issues).
+Feel free to check the [issues page](https://github.com/Achilles-Dev/book-an-appointment-front-end/issues).
 
 ## Show your support
 
@@ -86,4 +86,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/AyoubMs/book-an-appointment-front-end/blob/dev/MIT.md) licensed.
+This project is [MIT](https://github.com/Achilles-Dev/book-an-appointment-front-end/MIT.md) licensed.
