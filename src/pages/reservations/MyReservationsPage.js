@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations } from '../../redux/reservations/reservations';
-import Reservation from './Reservation';
+import Reservation from '../../components/Reservations/Reservation';
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
 
 const MyReservationsPage = ({ userId }) => {
-  const reservations = useSelector((state) => state.reservations);
-  const motorcycles = useSelector((state) => state.motorcycles);
+  const reservations = useSelector((state) => state.reservations.reservations);
+  const motorcycles = useSelector((state) => state.motorcycles.motorcycles);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -7,14 +7,14 @@ import HomePage from './pages/home/HomePage';
 import SignUpPage from './pages/signup/SignUp';
 import SignInPage from './pages/signin/SignIn';
 import Navigation from './layout/navigation/Sidebar';
-import AddReservation from './components/Reservations/AddReservation';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyReservationsPage from './components/Reservations/MyReservationsPage';
-import DetailsPage from './components/details/DetailsPage';
-import Home from './components/Home/Home';
-import AddMotorcycle from './components/motorcycles/addMotorcycle';
-import DeleteMotorcycle from './components/motorcycles/deleteMotorcycle';
 import './App.css';
+import MainPage from './pages/main/MainPage';
+import MyReservationsPage from './pages/reservations/MyReservationsPage';
+import DetailsPage from './pages/details/DetailsPage';
+import AddMotorcycle from './pages/motorcycles/addMotorcycle';
+import DeleteMotorcycle from './pages/motorcycles/deleteMotorcycle';
+import AddReservation from './pages/reservations/AddReservation';
 
 function App() {
   const currentUser = useSelector((state) => state.auth);
@@ -62,7 +62,7 @@ function App() {
           path="/home"
           element={
             currentUser.token && currentUser.token !== null ? (
-              <Home />
+              <MainPage />
             ) : (
               <Navigate to="/signin" />
             )

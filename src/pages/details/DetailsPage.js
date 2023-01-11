@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import SideView from '../../components/details/SideView';
 import { fetchSingleMotorcycle } from '../../redux/motorcycles/motorcycles';
-import SideView from './SideView';
 
 const DetailsPage = () => {
   const motorcycle = useSelector((state) => state.motorcycles);

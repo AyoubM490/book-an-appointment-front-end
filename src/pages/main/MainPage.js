@@ -4,10 +4,10 @@ import Carousel from 'react-multi-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMotorcycle, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { fetchMotorcycles } from '../../redux/motorcycles/motorcycles';
-import Motor from './Motor';
 import responsive from '../../config/responsive';
+import Motor from '../../components/motorcycles/Motor';
 
-const Home = () => {
+const MainPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMotorcycles());
@@ -44,4 +44,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default MainPage;
